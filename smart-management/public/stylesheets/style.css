@@ -7040,8 +7040,19 @@ a {
   right: 10px;
   margin-left: 10px; }
 
+.rowclass {
+  padding: 0; }
+
+.no_padding {
+  padding: 0;
+  z-index: 3; }
+
 .fade {
-  opacity: none; }
+  opacity: 0;
+  transition: opacity 0.15s linear; }
+
+.fade.show {
+  opacity: 1; }
 
 .img-login {
   background-image: url("/images/imagem_back.jpg");

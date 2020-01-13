@@ -3,68 +3,70 @@
   <hr>
 </div>
 
-<form class="" action="/station/delete/{{station.id}}" method="post">
-  <div class="form-group justify-content-start col-md-8 d-flex movap">
-    <input type="submit" value="Deletar Estação de Trabalho" class="btn btn-primary" >
-  </div>
-</form>
+
 <div class="col">
     <div class="row">
         <div class="col-lg-8">
             <form action="/station/{{station.id}}" class="col-lg-10" method="post">
-            <div class="form-group col-lg-8">
-                <p class="movap-nomes" align="left">Código da Estação</p>
-                <input type="text" class="form-control" id="intentificação" name="station[codeStation]" value={{station.codeStation}} readonly>
-            </div>
-            <div class="form-group col-lg-8">
-                <p class="movap-nomes" align="left">Número do Aparelho</p>
-                <input type="number" class="form-control" id="intentificação" name="station[deviceNumber]" value={{station.deviceNumber}}>
-            </div>
-            <div class="form-group col-lg-8">
-                <p class="movap-nomes" align="left">Código do Gestor Responsável</p>
-                <input type="number" class="form-control" id="intentificação" name="station[codManager]" value={{manager.codManager}}>
-            </div>
-            <div class="form-group col-lg-8">
-                <p class="movap-nomes" align="left">Nome do Colaborador</p>
-                <input type="text" class="form-control" id="intentificação" name="station[nameEmployed]" value={{station.nameEmployed}}>
-            </div>
-            <div class="form-group col-lg-8">
-                <p class="movap-nomes" align="left">Tempo de tolerância para uso do aparelho</p>
-                <input type="time" class="form-control" id="intentificação" name="station[toleranceTime]" value={{station.toleranceTime}}>
-            </div>
-            <div class="form-group col-lg-8">
-                <p class="movap-nomes" align="left">Status</p>
-                <select class="form-control" id="exampleFormControlSelect1" name="station[status]" value={{station.status}}>
-                  <option>Trabalho</option>
-                  <option>Férias</option>
-                  <option>Atestado</option>
-                  <option>Falta</option>
-                </select>
-            </div>
-            <div class="form-group col-lg-8">
-                <p class="movap-nomes" align="left">Horário de entrada</p>
-                <input type="time" class="form-control" id="intentificação" name="station[inputHour]" value={{station.inputHour}}>
-            </div>
-            <div class="form-group col-lg-8">
-                <p class="movap-nomes" align="left">Horário de saída</p>
-                <input type="time" class="form-control" id="intentificação" name="station[outputHour]" value={{station.outputHour}}>
-            </div>
-            <div class="form-group col-lg-8">
-                <p class="movap-nomes pb-2" align="left">Dias da Semana</p>
-                <input type="checkbox" name='station[weekday][monday]' value="1">Segunda</input>
-                <input type="checkbox" name='station[weekday][tuesday]' value="1">Terça</input>
-                <input type="checkbox" name='station[weekday][wednesday]' value="1">Quarta</input>
-                <input type="checkbox" name='station[weekday][thursday]' value="1">Quinta</input>
-                <input type="checkbox" name='station[weekday][frinday]' value="1">Sexta</input>
-                <input type="checkbox" name='station[weekday][saturday]' value="1">Sábado</input>
-                <input type="checkbox" name='station[weekday][sunday]' value="1">Domingo</input>
-            </div>
-
-            <div class="form-group justify-content-start col-md-8 d-flex movap">
-                <input type="submit" value="CONFIRMAR" class="btn btn-primary" >
-            </div>
+                <div class="form-group col-lg-8">
+                    <p class="movap-nomes" align="left">Código da Estação</p>
+                    <input type="text" class="form-control" id="intentificação" name="station[codeStation]" value={{station.codeStation}} readonly>
+                </div>
+                <div class="form-group col-lg-8">
+                    <p class="movap-nomes" align="left">Número do Aparelho</p>
+                    <input type="number" class="form-control" id="intentificação" name="station[deviceNumber]" value={{station.deviceNumber}}>
+                </div>
+                <div class="form-group col-lg-8">
+                    <p class="movap-nomes" align="left">Código do Gestor Responsável</p>
+                    <input type="number" class="form-control" id="intentificação" name="station[codManager]" value={{manager.codManager}}>
+                </div>
+                <div class="form-group col-lg-8">
+                    <p class="movap-nomes" align="left">Nome do Colaborador</p>
+                    <input type="text" class="form-control" id="intentificação" name="station[nameEmployed]" value={{station.nameEmployed}}>
+                </div>
+                <div class="form-group col-lg-8">
+                    <p class="movap-nomes" align="left">Tempo de tolerância para uso do aparelho</p>
+                    <input type="time" class="form-control" id="intentificação" name="station[toleranceTime]" value={{station.toleranceTime}}>
+                </div>
+                <div class="form-group col-lg-8">
+                    <p class="movap-nomes" align="left">Status</p>
+                    <select class="form-control" id="exampleFormControlSelect1" name="station[status]" value={{station.status}}>
+                    <option>Trabalho</option>
+                    <option>Férias</option>
+                    <option>Atestado</option>
+                    <option>Falta</option>
+                    </select>
+                </div>
+                <div class="form-group col-lg-8">
+                    <p class="movap-nomes" align="left">Horário de entrada</p>
+                    <input type="time" class="form-control" id="intentificação" name="station[inputHour]" value={{station.inputHour}}>
+                </div>
+                <div class="form-group col-lg-8">
+                    <p class="movap-nomes" align="left">Horário de saída</p>
+                    <input type="time" class="form-control" id="intentificação" name="station[outputHour]" value={{station.outputHour}}>
+                </div>
+                <div class="form-group col-lg-8">
+                    <p class="movap-nomes pb-2" align="left">Dias da Semana</p>
+                    <input type="checkbox" name='station[weekday][monday]' value="1">Segunda</input>
+                    <input type="checkbox" name='station[weekday][tuesday]' value="1">Terça</input>
+                    <input type="checkbox" name='station[weekday][wednesday]' value="1">Quarta</input>
+                    <input type="checkbox" name='station[weekday][thursday]' value="1">Quinta</input>
+                    <input type="checkbox" name='station[weekday][frinday]' value="1">Sexta</input>
+                    <input type="checkbox" name='station[weekday][saturday]' value="1">Sábado</input>
+                    <input type="checkbox" name='station[weekday][sunday]' value="1">Domingo</input>
+                </div>
+                
+                <div class="d-flex  movap">
+                    <button type="submit"  class="mr-auto p-2 btn btn-primary" >CONFIRMAR</button>
+                    <form action="/station/delete/{{station.id}}" method="post">
+                        <button type="submit"  class="mr-auto btn btn-primary" onclick="return confirm('Você têm certeza que deseja excluir essa ESTAÇÃO?')" id="excluir" >EXCLUIR</button>
+                    </form>
+                    <div class="p-2"></div>
+                </div>
             </form>
         </div>
     </div>
 </div>
-<br><br><br>
+<br><br><br><br><br><br>
+
+
