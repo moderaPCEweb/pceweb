@@ -16,7 +16,7 @@
                     POR NOME
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">POR DATA</a>
+                    <a class="dropdown-item" href="#">POR STATUS</a>
                     <div class="dropdown-divider"></div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                     {{#each stations}}
                     <tr>
                     <th scope="row" class="font-book text-center">{{nameEmployed}}</th>
-                    <th scope="row" class="font-book text-center">{{dataesp}}</th>
+                    <th scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
                     </tr>
                     {{/each}}
                 </tbody>
