@@ -5,6 +5,7 @@ const Device = require('../models/devices');
 const Client = require('../models/clients');
 const Station = require('../models/station');
 const Manager = require('../models/manager');
+const User = require('../models/user');
 
 const router = express.Router();
 
@@ -18,7 +19,8 @@ router.get('/',auth.isAuthenticated,auth.isManager, (req, res) => {
 
 router.get('/list',auth.isAuthenticated,auth.isManager, (req, res) => {
 const idm = req.session.id_t;
-  Station.getByIdm(idm).then((stations) => {
+console.log("Logado: " + req.session._id);
+  Station.getByManager(req.session._id).then((stations) => {
     // console.log(stations);
     res.render('manager/registerWorkStationHome', { title: 'Lista de Estações de Trabalho', layout: 'layoutdashboardmanager', stations });
   }).catch((error)=> {
@@ -40,7 +42,7 @@ router.get('/movimentation/:id',auth.isAuthenticated,auth.isManager, (req, res) 
 router.get('/edit/:id',auth.isAuthenticated,auth.isManager, (req, res) => {
   Station.getById(req.params.id).then((station) => {
     console.log(station);
-    Manager.getById(station.manager).then((manager) => {
+    User.getById(station.manager).then((manager) => {
       console.log(manager);
     res.render('manager/registerWorkStationEdit', { title: 'Edição da Estação de Trabalho', layout: 'layoutdashboardmanager',station, manager });
     });
@@ -50,9 +52,10 @@ router.get('/edit/:id',auth.isAuthenticated,auth.isManager, (req, res) => {
 router.post('/signup', function(req, res, next){
   const ativa = req.body.station;
   ativa.id_m = req.session.id_t;
+  ativa.manager = req.session._id;
   Station.create(ativa).then((id) => {
     res.redirect('/station/list');
-    }).catch((error) =>{
+    }).catch((error) => {
       console.log(error);
   });
 });

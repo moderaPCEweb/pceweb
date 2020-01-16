@@ -11,13 +11,13 @@ const Sector = require('../models/sector');
 
 const router = express.Router();
 
-router.get('/signup',auth.isAuthenticated,auth.isClienteADM, function(req, res, next) {
+router.get('/signup',auth.isAuthenticated, auth.isClienteADM, function(req, res, next) {
   res.render('client/managerRegistration', { title: 'Cadastro de Gestores', layout: 'layoutdashboardclientadm'});
 });
 
-router.get('/list',auth.isAuthenticated,auth.isClienteADM, (req, res) => {
-  Manager.getAll().then((managers) => {
-    res.render('client/managerList', { title: 'Lista de Gestores',layout: 'layoutdashboardclientadm', managers });
+router.get('/list',auth.isAuthenticated, auth.isClienteADM, (req, res) => {
+  Manager.getByClient(req.session._id).then((managers) => {
+    res.render('client/managerList', { title: 'Lista de Gestores', layout: 'layoutdashboardclientadm', managers });
   }).catch((error)=> {
     res.redirect('/error');
     console.log(error);
@@ -33,6 +33,7 @@ router.get('/edit/:id',auth.isAuthenticated,auth.isClienteADM, (req, res) => {
 router.post('/signup',auth.isAuthenticated,auth.isClienteADM, function(req, res, next) {
   const ativa = req.body.manager;
   ativa.type = "Gestor";
+  ativa.client = req.session._id;
   firebase.auth().createUserWithEmailAndPassword(ativa.email, ativa.password).then((userF) => {
     ativa.uid = userF.user.uid;
     var usuario = ativa;
