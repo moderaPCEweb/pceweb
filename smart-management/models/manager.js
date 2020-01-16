@@ -13,10 +13,10 @@ const ManagerSchema = new mongoose.Schema({
       type: String,
       default: 'Gestor'
     },
-    stations: [{
+    client: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Station'
-    }]
+      ref: 'Client'
+    }
 }, {timestamps: true, static: false});
 
 const ManagerModel = mongoose.model('Manager', ManagerSchema);
@@ -35,6 +35,21 @@ class Manager {
        });
      });
    }
+
+    /**
+    * Get a manager by it's client
+    * @param {string} id - Client id
+    * @returns {Object} - Manager Document Data
+    */
+   static getByClient(id) {
+    return new Promise((resolve, reject) => {
+      ManagerModel.find({ client: id }).exec().then((result) => {
+        resolve(result);
+      }).catch((err) => {
+        reject(err);
+      });
+    });
+  }
 
    /**
     * Get a Manager by it's id

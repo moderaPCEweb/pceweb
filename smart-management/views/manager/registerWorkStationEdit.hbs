@@ -17,10 +17,6 @@
                     <input type="number" class="form-control" id="intentificação" name="station[deviceNumber]" value={{station.idesp}}>
                 </div>
                 <div class="form-group col-lg-8">
-                    <p class="movap-nomes" align="left">Código do Gestor Responsável</p>
-                    <input type="text" class="form-control" id="intentificação" name="station[codManager]" value={{manager.codManager}}>
-                </div>
-                <div class="form-group col-lg-8">
                     <p class="movap-nomes" align="left">Nome do Colaborador</p>
                     <input type="text" class="form-control" id="intentificação" name="station[nameEmployed]" value={{station.nameEmployed}}>
                 </div>
@@ -47,7 +43,7 @@
                 </div>
                 <div class="form-group col-lg-8">
                     <p class="movap-nomes pb-2" align="left">Dias da Semana</p>
-                    <input type="checkbox" name='station[weekday][monday]' value={{station.weekday.monday}}>Segunda</input>
+                    <input type="checkbox" name='station[weekday][monday]' value={{station.weekday.monday}} checked>Segunda</input>
                     <input type="checkbox" name='station[weekday][tuesday]' value={{station.weekday.tuesday}}>Terça</input>
                     <input type="checkbox" name='station[weekday][wednesday]' value={{station.weekday.wednesday}}>Quarta</input>
                     <input type="checkbox" name='station[weekday][thursday]' value={{station.weekday.thursday}}>Quinta</input>

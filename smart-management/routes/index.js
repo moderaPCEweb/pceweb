@@ -24,22 +24,11 @@ router.get('/dashboard',auth.isAuthenticated,(req, res) => {
 /* POST Login */
 router.post('/login', (req, res) => {
   const user = req.body.user;
-    // var erros = [];
-    // if(!req.body.email || typeof req.body.email == undefined || req.body.email == null){
-    // erros.push ({texto: "Email Inválido"})
-    //}
-    //if(!req.body.password || typeof req.body.password == undefined || req.body.password == null){
-    //   erros.push ({texto: "Senha Inválida"})
-    //  }
-    //if(erros.length > 0){
-    //console.log('PASSOU POR AQUI')
-    //res.redirect('/');
-    //} else
-    //{
   firebase.auth().signInWithEmailAndPassword(user.email, user.password).then((userID) => {
     User.getByUid(userID.user.uid).then((currentLogged) => {
       if (userID) {
-        req.session.userUid =currentLogged.uid;
+        req.session._id = currentLogged._id;
+        req.session.userUid = currentLogged.uid;
         req.session.email = currentLogged.email;
         req.session.type = currentLogged.type;
         req.session.id_t = currentLogged.id_t;
@@ -58,7 +47,7 @@ router.post('/login', (req, res) => {
           res.redirect('/client/list');
         }
       }
-      }).catch((error)=>{
+      }).catch((error) => {
         console.log(error);
         console.log('------QQQQQQQ--------');
         res.redirect('/error');
