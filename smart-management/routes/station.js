@@ -70,16 +70,17 @@ router.post('/:id',(req, res) => {
   const station = req.body.station;
   const stationId = req.params.id;
   Station.getById(req.params.id).then((oldStation) => {
-    Manager.removeStation(oldStation.manager, stationId).catch((error) => {
-      console.log(error);
-      res.redirect('/error');
-    });
+//    Manager.removeStation(oldStation.manager, stationId).catch((error) => {
+//      console.log(error);
+//      res.redirect('/error');
+//    });
+    delete oldStation;
     Manager.getByCodManager(station.codManager).then((manager) => {
       station.manager = manager;
-      delete manager.codManager;
+     // delete manager.codManager;
       Manager.addStation(manager, stationId).catch((error) => {
         console.log(error);
-        res.redirect('/error');
+        res.redirect('/station/list');
       });
       Station.update(req.params.id, station).then(() => {
         res.redirect('/station/list');
