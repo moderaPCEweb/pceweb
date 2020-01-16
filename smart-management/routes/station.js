@@ -79,7 +79,8 @@ router.post('/:id',(req, res) => {
 //    });
     delete oldStation;
     Manager.getByCodManager(station.codManager).then((manager) => {
-      station.manager = manager;
+      //station.manager = manager;
+      console.log("mg:"+manager);
      // delete manager.codManager;
       Manager.addStation(manager, stationId).catch((error) => {
         console.log(error);
