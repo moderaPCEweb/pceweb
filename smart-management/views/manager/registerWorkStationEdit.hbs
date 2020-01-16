@@ -14,11 +14,11 @@
                 </div>
                 <div class="form-group col-lg-8">
                     <p class="movap-nomes" align="left">Código do Aparelho</p>
-                    <input type="number" class="form-control" id="intentificação" name="station[deviceNumber]" value={{station.deviceNumber}}>
+                    <input type="number" class="form-control" id="intentificação" name="station[deviceNumber]" value={{station.idesp}}>
                 </div>
                 <div class="form-group col-lg-8">
                     <p class="movap-nomes" align="left">Código do Gestor Responsável</p>
-                    <input type="text" class="form-control" id="intentificação" name="station[codManager]" value={{station.id_m}}>
+                    <input type="text" class="form-control" id="intentificação" name="station[codManager]" value={{manager.codManager}}>
                 </div>
                 <div class="form-group col-lg-8">
                     <p class="movap-nomes" align="left">Nome do Colaborador</p>
@@ -58,7 +58,7 @@
                 
                 <div class="d-flex  movap">
                     <button type="submit"  class="mr-auto p-2 btn btn-primary" >CONFIRMAR</button>
-                    <form action="/station/delete/{{station.id}}" method="post">
+                    <form action="/station/delete/{{station.id}}" method="POST">
                         <button type="submit"  class="mr-auto btn btn-primary" onclick="return confirm('Você têm certeza que deseja excluir essa ESTAÇÃO?')" id="excluir" >EXCLUIR</button>
                     </form>
                     <div class="p-2"></div>
