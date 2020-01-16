@@ -43,7 +43,7 @@
                 </div>
                 <div class="form-group col-lg-8">
                     <p class="movap-nomes pb-2" align="left">Dias da Semana</p>
-                    <input type="checkbox" name='station[weekday][monday]' value={{station.weekday.monday}} checked>Segunda</input>
+                    <input type="checkbox" name='station[weekday][monday]' value={{station.weekday.monday}}>Segunda</input>
                     <input type="checkbox" name='station[weekday][tuesday]' value={{station.weekday.tuesday}}>Terça</input>
                     <input type="checkbox" name='station[weekday][wednesday]' value={{station.weekday.wednesday}}>Quarta</input>
                     <input type="checkbox" name='station[weekday][thursday]' value={{station.weekday.thursday}}>Quinta</input>
@@ -54,12 +54,13 @@
                 
                 <div class="d-flex  movap">
                     <button type="submit"  class="mr-auto p-2 btn btn-primary" >CONFIRMAR</button>
+                </form>  
                     <form action="/station/delete/{{station.id}}" method="POST">
                         <button type="submit"  class="mr-auto btn btn-primary" onclick="return confirm('Você têm certeza que deseja excluir essa ESTAÇÃO?')" id="excluir" >EXCLUIR</button>
                     </form>
                     <div class="p-2"></div>
                 </div>
-            </form>
+            
         </div>
     </div>
 </div>

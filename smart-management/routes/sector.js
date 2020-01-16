@@ -55,7 +55,7 @@ router.get('/edit/:id',auth.isAuthenticated,auth.isClienteADM, (req, res) => {
 
 router.post('/delete/:id' , (req,res) => {
   Sector.delete(req.params.id).then((resolve) => {
-    res.redirect('sector/list')
+    res.redirect('../list')
   }).catch((error) => {
     console.log(error);
     res.redirect('/error');
