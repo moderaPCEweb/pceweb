@@ -24,6 +24,15 @@ router.get('/list',auth.isAuthenticated, auth.isClienteADM, (req, res) => {
   });
 });
 
+router.get('/managerlist',auth.isAuthenticated, auth.isClienteADM, (req, res) => {
+  Manager.getAll().then((managers) => {
+    res.render('client/managerList', { title: 'Lista de Gestores', layout: 'layoutdashboardclientadm', managers });
+  }).catch((error)=> {
+    res.redirect('/error');
+    console.log(error);
+  });
+});
+
 router.get('/edit/:id',auth.isAuthenticated,auth.isClienteADM, (req, res) => {
   Manager.getById(req.params.id).then((manager) => {
     res.render('client/managerRegistrationedit', { title: 'Edição de Perfil', layout:'layoutdashboardclientadm',manager });

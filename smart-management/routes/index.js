@@ -41,7 +41,7 @@ router.post('/login', (req, res) => {
           console.log('---------------entrou-------------------');
         }
         if(currentLogged.type == "ClienteADM"){
-          res.redirect('/manager/list');
+          res.redirect('/manager/managerlist');
         }
         if(currentLogged.type == "ADM"){
           res.redirect('/client/list');

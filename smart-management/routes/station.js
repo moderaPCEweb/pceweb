@@ -21,7 +21,7 @@ router.get('/list',auth.isAuthenticated,auth.isManager, (req, res) => {
 const idm = req.session.id_t;
 console.log("Logado: " + req.session._id);
   Station.getByManager(req.session._id).then((stations) => {
-    // console.log(stations);
+    console.log(stations);
     res.render('manager/registerWorkStationHome', { title: 'Lista de Estações de Trabalho', layout: 'layoutdashboardmanager', stations });
   }).catch((error)=> {
     res.redirect('/error');

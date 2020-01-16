@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
 <script src="/javascripts/search.js"></script>
 
 
@@ -9,21 +11,18 @@
     <div class="row">
         <div class="col-lg-5">
             <div class="bg clearfix col">
-                <button type="button" class="btn btn-primary btn-info  btn-secondary float-left"  aria-haspopup="true" aria-expanded="false"/><a  style="color:#ffffff" href="/sector/signup">NOVO</a></button>
-                <button type="button" class="btn btn-primary btn-info dropdown-toggle btn-secondary float-right " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    POR DATA
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">POR DATA</a>
-                    <a class="dropdown-item" href="#">POR MAC</a>
-                    <div class="dropdown-divider"></div>
-                </div>
+                <button type="button" class="btn btn-primary btn-info  btn-secondary "  aria-haspopup="true" aria-expanded="false"/><a  style="color:#ffffff" href="/sector/signup">NOVO</a></button>
             </div>
             <br>
             <div class="col">
-                <div class="input-group">
-                    <input  id="myInput" class="form-control" type="text" onkeyup="myFunction()" placeholder="Pesquisar" aria-label="Search" style="border-right: none;">
-                </div>
+                    <div class="input-group">                     
+                        <input  id="myInput" class="form-control" type="text" onkeyup="myFunction()" placeholder="Pesquisar" aria-label="Search">
+                         <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
             </div>
             <table class="table table-bordered table-responsive-sm mt-4">
               <tbody id="myTable" class="element">
