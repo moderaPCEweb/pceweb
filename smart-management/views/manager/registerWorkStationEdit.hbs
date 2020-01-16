@@ -13,8 +13,8 @@
                     <input type="text" class="form-control" id="intentificação" name="station[codeStation]" value={{station.codeStation}} readonly>
                 </div>
                 <div class="form-group col-lg-8">
-                    <p class="movap-nomes" align="left">Número do Aparelho</p>
-                    <input type="number" class="form-control" id="intentificação" name="station[deviceNumber]" value={{station.idesp}}>
+                    <p class="movap-nomes" align="left">Código do Aparelho</p>
+                    <input type="number" class="form-control" id="intentificação" name="station[deviceNumber]" value={{station.deviceNumber}}>
                 </div>
                 <div class="form-group col-lg-8">
                     <p class="movap-nomes" align="left">Código do Gestor Responsável</p>
@@ -46,14 +46,14 @@
                     <input type="time" class="form-control" id="intentificação" name="station[outputHour]" value={{station.outputHour}}>
                 </div>
                 <div class="form-group col-lg-8">
-                    <p class="movap-nomes pb-2" align="left">Dias da Semana</p>                
-                    <input type="checkbox" name='station[weekday][monday]' value="1">Segunda</input>
-                    <input type="checkbox" name='station[weekday][tuesday]' value="1">Terça</input>
-                    <input type="checkbox" name='station[weekday][wednesday]' value="1">Quarta</input>
-                    <input type="checkbox" name='station[weekday][thursday]' value="1">Quinta</input>
-                    <input type="checkbox" name='station[weekday][friday]' value="1">Sexta</input>
-                    <input type="checkbox" name='station[weekday][saturday]' value="1">Sábado</input>
-                    <input type="checkbox" name='station[weekday][sunday]' value="1">Domingo</input>
+                    <p class="movap-nomes pb-2" align="left">Dias da Semana</p>
+                    <input type="checkbox" name='station[weekday][monday]' value={{station.weekday.monday}}>Segunda</input>
+                    <input type="checkbox" name='station[weekday][tuesday]' value={{station.weekday.tuesday}}>Terça</input>
+                    <input type="checkbox" name='station[weekday][wednesday]' value={{station.weekday.wednesday}}>Quarta</input>
+                    <input type="checkbox" name='station[weekday][thursday]' value={{station.weekday.thursday}}>Quinta</input>
+                    <input type="checkbox" name='station[weekday][frinday]' value={{station.weekday.friday}}>Sexta</input>
+                    <input type="checkbox" name='station[weekday][saturday]' value={{station.weekday.saturday}}>Sábado</input>
+                    <input type="checkbox" name='station[weekday][sunday]' value={{station.weekday.sunday}}>Domingo</input>
                 </div>
                 
                 <div class="d-flex  movap">
