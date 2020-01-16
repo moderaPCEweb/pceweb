@@ -12,7 +12,7 @@ const StationSchema = new mongoose.Schema({
     idesp: String,
     dataesp: {
       type: String,
-      default: "Desligado"
+      default: "Desligado",
     },
     nameEmployed: String,
     toleranceTime: String,

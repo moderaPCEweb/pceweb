@@ -5,7 +5,8 @@ const Device = require('../models/devices');
 const Client = require('../models/clients');
 const Station = require('../models/station');
 const Manager = require('../models/manager');
-const Sensor = require('../models/sensor')
+const Sensor = require('../models/sensor');
+
 
 const router = express.Router();
 
@@ -60,10 +61,20 @@ router.post('/receiveData::idesp::data::idmac', (req, res) =>{
         }).catch((error) =>{
           console.log(error);
       });
+
+
+
       }
 
       else if(ativa.data == 1){
         // console.log("Desligado");
+        function contador(){
+          setTimeout(contador, 1000)
+          var timer = timer +1;
+          console.log("está entrando no contador");
+          console.log(timer);
+        }
+          console.log("PQ NAO TA ENTRANDO AAAAAAA");
         station[0].dataesp = "Desligado";
         Station.update(station[0]._id, station[0]).then(() =>{
         }).catch((error) =>{
