@@ -43,23 +43,62 @@
                 </div>
                 <div class="form-group col-lg-8">
                     <p class="movap-nomes pb-2" align="left">Dias da Semana</p>
-                    <input type="checkbox" name='station[weekday][monday]' value={{station.weekday.monday}}>Segunda</input>
+                    {{#compare station.weekday.monday 1}}
+                    <input type="checkbox" checked name='station[weekday][monday]' value={{station.weekday.monday}}>Segunda</input>
+                    {{else}}
+                    <input type="checkbox"  name='station[weekday][monday]' value={{station.weekday.monday}}>Segunda</input>
+                    {{/compare}}
+
+                    {{#compare station.weekday.tuesday 1}}
+                    <input type="checkbox" checked name='station[weekday][tuesday]' value={{station.weekday.tuesday}}>Terça</input>
+                    {{else}}
                     <input type="checkbox" name='station[weekday][tuesday]' value={{station.weekday.tuesday}}>Terça</input>
+                    {{/compare}}
+
+                    {{#compare station.weekday.wednesday 1}}
+                    <input type="checkbox" checked name='station[weekday][wednesday]' value={{station.weekday.wednesday}}>Quarta</input>
+                    {{else}}
                     <input type="checkbox" name='station[weekday][wednesday]' value={{station.weekday.wednesday}}>Quarta</input>
+                    {{/compare}}
+
+                    {{#compare station.weekday.thursday 1}}
+                    <input type="checkbox" checked name='station[weekday][thursday]' value={{station.weekday.thursday}}>Quinta</input>
+                    {{else}}
                     <input type="checkbox" name='station[weekday][thursday]' value={{station.weekday.thursday}}>Quinta</input>
-                    <input type="checkbox" name='station[weekday][frinday]' value={{station.weekday.friday}}>Sexta</input>
-                    <input type="checkbox" name='station[weekday][saturday]' value={{station.weekday.saturday}}>Sábado</input>
-                    <input type="checkbox" name='station[weekday][sunday]' value={{station.weekday.sunday}}>Domingo</input>
-                </div>
-                
-                <div class="d-flex  movap">
-                    <button type="submit"  class="mr-auto p-2 btn btn-primary" >CONFIRMAR</button>
-                </form>  
-                    <form action="/station/delete/{{station.id}}" method="POST">
-                        <button type="submit"  class="mr-auto btn btn-primary" onclick="return confirm('Você têm certeza que deseja excluir essa ESTAÇÃO?')" id="excluir" >EXCLUIR</button>
-                    </form>
-                    <div class="p-2"></div>
-                </div>
+                    {{/compare}}
+
+                   
+                    {{#compare station.weekday.friday 1}}
+                    <input type="checkbox" checked name='station[weekday][friday]' value={{station.weekday.friday}}>Sexta</input>
+                    {{else}}
+                    <input type="checkbox"  name='station[weekday][friday]' value={{station.weekday.friday}}>Sexta</input>
+                    {{/compare}}
+
+                    {{#compare station.weekday.saturday 1}}
+                    <input type="checkbox" checked name='station[weekday][saturday]' value={{station.weekday.saturday}}>Sábado</input>
+                    {{else}}
+                    <input type="checkbox"  name='station[weekday][saturday]' value={{station.weekday.saturday}}>Sábado</input>
+                    {{/compare}}
+
+                    {{#compare station.weekday.sunday 1}}
+                    <input type="checkbox" checked name='station[weekday][sunday]' value={{station.weekday.sunday}}>Domingo</input>
+                    {{else}}
+                    <input type="checkbox"  name='station[weekday][sunday]' value={{station.weekday.sunday}}>Domingo</input>
+                    {{/compare}}
+                </div>  
+                <div class="row">
+                    <div class="d-flex pl-3  movap">
+                        <button type="submit"  class="mr-auto p-2 btn btn-primary" >CONFIRMAR</button>
+                    </div>
+                </form>
+                    <div class="d-flex pl-3  movap">
+                        <form action="/station/delete/{{station.id}}" method="POST">
+                            <button type="submit"  class="mr-auto p-2 btn btn-primary" onclick="return confirm('Você têm certeza que deseja excluir essa ESTAÇÃO?')" id="excluir" >EXCLUIR</button>
+                        </form> 
+                    </div>
+                </div>           
+                    
+            </div>
             
         </div>
     </div>
