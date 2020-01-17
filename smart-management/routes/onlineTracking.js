@@ -23,7 +23,7 @@ router.get('/signup',auth.isAuthenticated,auth.isManager, function(req, res, nex
 });
 
 router.get('/list',auth.isAuthenticated,auth.isManager, (req, res) => {
-  const manager = req.session.id_t;
+  const manager = req.session._id;
   console.log(manager);
   Station.getByManager(manager).then((stations) => {
     res.render('manager/onlineTrackingHome', { title: 'Acompanhamento Online', layout: 'layoutdashboardmanager',stations });
