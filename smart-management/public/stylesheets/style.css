@@ -7277,4 +7277,12 @@ a {
   pointer-events: none;
   color: #aaa; }
 
+.Desligado {
+  background: #254487;
+  color: white; }
+
+.em, .uso {
+  background: #B20000;
+  color: white; }
+
 /*# sourceMappingURL=style.css.map */
