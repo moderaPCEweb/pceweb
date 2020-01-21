@@ -26,36 +26,38 @@ router.get('/signup',auth.isAuthenticated,auth.isManager, function(req, res, nex
 
 router.get('/list',auth.isAuthenticated,auth.isManager, (req, res) => {
   Sensor.getAll().then((sensor) => {
-    console.log(sensor[0].createdAt);
-    oi = sensor[0].createdAt;
-    
-    console.log(oi);   
-    console.log(moment(oi).format("YYYY-MM-DD HH:mm:ss"));
-    console.log("Date: "+moment(oi).format("YYYY-MM-DD"));
-    console.log("Year: "+moment(oi).format("YYYY"));
-    console.log("Month: "+moment(oi).format("MM"));
-    console.log("Month: "+moment(oi).format("MMMM"));
-    console.log("Day: "+moment(oi).format("DD"));
-    console.log("Day: "+moment(oi).format("dddd"));
-    console.log("Time: "+moment(oi).format("HH:mm"));
-    var hora = moment(oi).format("HH");
-    var minuto = moment(oi).format("mm");
-    var segundo = moment(oi).format("ss")
-    console.log("----------------------------------");
-    
-  
     const manager = req.session._id;
     console.log(manager);
+      Station.getByManager(manager).then((stations) => {
+      console.log(sensor[0].createdAt);
+      oi = sensor[0].createdAt;
+      
+      console.log(oi);   
+      console.log(moment(oi).format("YYYY-MM-DD HH:mm:ss"));
+      console.log("Date: "+moment(oi).format("YYYY-MM-DD"));
+      console.log("Year: "+moment(oi).format("YYYY"));
+      console.log("Month: "+moment(oi).format("MM"));
+      console.log("Month: "+moment(oi).format("MMMM"));
+      console.log("Day: "+moment(oi).format("DD"));
+      console.log("Day: "+moment(oi).format("dddd"));
+      console.log("Time: "+moment(oi).format("HH:mm"));
+      var hora = moment(oi).format("HH");
+      var minuto = moment(oi).format("mm");
+      var segundo = moment(oi).format("ss")
+      console.log("----------------------------------");
+      
+
+  
+    res.render('manager/onlineTrackingHome', { title: 'Acompanhamento Online', layout: 'layoutdashboardmanager',stations });
   }).catch((error) => {
     res.redirect('error');
     console.log(error);
-  });
-  // Station.getByManager(manager).then((stations) => {
-  //   res.render('manager/onlineTrackingHome', { title: 'Acompanhamento Online', layout: 'layoutdashboardmanager',stations });
-  // }).catch((error)=> {
-  //   res.redirect('/error');
-  //   console.log(error);
-  // });
+  });  
+
+     }).catch((error)=> {
+     res.redirect('/error');
+     console.log(error);
+   });
 });
 
 router.get('/edit/:id',auth.isAuthenticated,auth.isManager, (req, res) => {
