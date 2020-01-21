@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-5">
             <br>
-            <div class="col">
+            <div class="row">
                   <div class="input-group">
                         <input  id="myInput" class="form-control" type="text" onkeyup="myFunction()" placeholder="Pesquisar" aria-label="Search">
                          <div class="input-group-append">
@@ -22,12 +22,12 @@
                         </div>
                     </div>
             </div>
-            <div class="row col-10 pl-8 ml-5" >
+            <div class="row" >
               <table id="myTable" class="table table-bordered table-responsive-sm mt-3 border-dark border">
                 <tbody id="myTable">
                     {{#each stations}}
                     <tr>
-                    <th scope="row" class="font-book text-center">{{nameEmployed}}</th>
+                    <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
                     <th scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
                     </tr>
                     {{/each}}
