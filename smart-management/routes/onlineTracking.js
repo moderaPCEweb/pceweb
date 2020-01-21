@@ -29,24 +29,32 @@ router.get('/list',auth.isAuthenticated,auth.isManager, (req, res) => {
     const manager = req.session._id;
     console.log(manager);
       Station.getByManager(manager).then((stations) => {
-      console.log(sensor[0].createdAt);
-      oi = sensor[0].createdAt;
+      // console.log(sensor[0].createdAt);
+      // oi = sensor[0].createdAt;
       
-      console.log(oi);   
-      console.log(moment(oi).format("YYYY-MM-DD HH:mm:ss"));
-      console.log("Date: "+moment(oi).format("YYYY-MM-DD"));
-      console.log("Year: "+moment(oi).format("YYYY"));
-      console.log("Month: "+moment(oi).format("MM"));
-      console.log("Month: "+moment(oi).format("MMMM"));
-      console.log("Day: "+moment(oi).format("DD"));
-      console.log("Day: "+moment(oi).format("dddd"));
-      console.log("Time: "+moment(oi).format("HH:mm"));
-      var hora = moment(oi).format("HH");
-      var minuto = moment(oi).format("mm");
-      var segundo = moment(oi).format("ss")
-      console.log("----------------------------------");
+      // console.log(oi);   
+      // console.log(moment(oi).format("YYYY-MM-DD HH:mm:ss"));
+      // console.log("Date: "+moment(oi).format("YYYY-MM-DD"));
+      // console.log("Year: "+moment(oi).format("YYYY"));
+      // console.log("Month: "+moment(oi).format("MM"));
+      // console.log("Month: "+moment(oi).format("MMMM"));
+      // console.log("Day: "+moment(oi).format("DD"));
+      // console.log("Day: "+moment(oi).format("dddd"));
+      // console.log("Time: "+moment(oi).format("HH:mm"));
+      // var hora = moment(oi).format("HH");
+      // var minuto = moment(oi).format("mm");
+      // var segundo = moment(oi).format("ss")
+      // console.log("----------------------------------");
       
 
+      // var date = oi;
+      // var now = new Date();
+      // console.log(" Seconds from now : " + parseInt( (now.getTime() - date.getTime())/1000 ) );
+      // var ff = parseInt( (now.getTime() - date.getTime())/1000 )
+      // console.log("total-------------"+ff);
+      // ss = ff%60;
+      // mi = ff/60;
+      // console.log(mi.toFixed(0)+":"+ss);
   
     res.render('manager/onlineTrackingHome', { title: 'Acompanhamento Online', layout: 'layoutdashboardmanager',stations });
   }).catch((error) => {
