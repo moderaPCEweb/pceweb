@@ -10,7 +10,7 @@ const router = express.Router();
 
 /* GET cadastroClientes page. */
 router.get('/', function(req, res, next){
-  Sensor.findOneById(325698).then((data) =>{
+  Sensor.getByIdData("A023",1).then((data) =>{
     console.log(data);
   });
   res.render('manager/logUse', { title: 'Log de Uso', layout: 'layoutdashboardmanager' });

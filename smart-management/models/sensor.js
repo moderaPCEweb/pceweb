@@ -99,6 +99,22 @@ class Sensor {
         });
       });
     }
+
+    /**
+     * Get a Sensor by it's id
+     * @param {string} idesp - Sensor Id
+     * @returns {Object} - Sensor Document Data
+     */
+    static getByIdData(id,data) {
+      return new Promise((resolve, reject) => {
+        SensorModel.find({idesp :  id, data : data}).sort({createdAt: 1}).exec().then((result) => {
+          resolve(result);
+        }).catch((err) => {
+          reject(err);
+        });
+      });
+    }
+
 }
 
   module.exports = Sensor;
