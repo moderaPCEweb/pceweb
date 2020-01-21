@@ -77,6 +77,7 @@ router.post('/receiveData::idesp::data::idmac', (req, res) =>{
   console.log(error);
     });
   return res.send("Recebido");
+
 });
 
 
