@@ -39,6 +39,7 @@ router.get('/movimentation/:id',auth.isAuthenticated,auth.isManager, (req, res) 
   });
 });
 
+
 router.get('/edit/:id',auth.isAuthenticated,auth.isManager, (req, res) => {
   Station.getById(req.params.id).then((station) => {
     console.log(station);
@@ -47,6 +48,17 @@ router.get('/edit/:id',auth.isAuthenticated,auth.isManager, (req, res) => {
     res.render('manager/registerWorkStationEdit', { title: 'Edição da Estação de Trabalho', layout: 'layoutdashboardmanager',station, manager });
     });
   });
+});
+
+/* GET cadastroClientes page. */
+router.get('/logUse/:id',auth.isAuthenticated,auth.isManager,(req, res) => {
+  Station.getById(req.params.id).then((station) => {
+    console.log(station);
+    User.getById(station.manager).then((manager) => {
+      console.log(manager);
+  });
+  res.render('manager/logUse', { title: 'Log de Uso', layout: 'layoutdashboardmanager' });
+});
 });
 
 router.post('/signup', function(req, res, next){
