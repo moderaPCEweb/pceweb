@@ -24,6 +24,15 @@ router.get('/signup',auth.isAuthenticated,auth.isManager, function(req, res, nex
   res.render('manager/', { title: '' });
 });
 
+router.get('/getstation',(req,res) => {
+  const manager = req.session._id;
+  console.log(manager);
+    Station.getByManager(manager).then((stations) => {
+      console.log(stations);
+      res.send(stations);
+    });
+});
+
 router.get('/list',auth.isAuthenticated,auth.isManager, (req, res) => {
   Sensor.getAll().then((sensor) => {
     const manager = req.session._id;
@@ -31,8 +40,8 @@ router.get('/list',auth.isAuthenticated,auth.isManager, (req, res) => {
       Station.getByManager(manager).then((stations) => {
       // console.log(sensor[0].createdAt);
       // oi = sensor[0].createdAt;
-      
-      // console.log(oi);   
+
+      // console.log(oi);
       // console.log(moment(oi).format("YYYY-MM-DD HH:mm:ss"));
       // console.log("Date: "+moment(oi).format("YYYY-MM-DD"));
       // console.log("Year: "+moment(oi).format("YYYY"));
@@ -45,7 +54,7 @@ router.get('/list',auth.isAuthenticated,auth.isManager, (req, res) => {
       // var minuto = moment(oi).format("mm");
       // var segundo = moment(oi).format("ss")
       // console.log("----------------------------------");
-      
+
 
       // var date = oi;
       // var now = new Date();
@@ -55,12 +64,12 @@ router.get('/list',auth.isAuthenticated,auth.isManager, (req, res) => {
       // ss = ff%60;
       // mi = ff/60;
       // console.log(mi.toFixed(0)+":"+ss);
-  
-    res.render('manager/onlineTrackingHome', { title: 'Acompanhamento Online', layout: 'layoutdashboardmanager',stations });
+
+    res.render('manager/onlineTrackingHome', { title: 'Acompanhamento Online', layout: 'layoutdashboardmanagerOnlineTracking',stations });
   }).catch((error) => {
     res.redirect('error');
     console.log(error);
-  });  
+  });
 
      }).catch((error)=> {
      res.redirect('/error');
