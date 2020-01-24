@@ -23,7 +23,7 @@ const managerRouter = require('./routes/manager');
 const stationRouter = require('./routes/station');
 const offlineTrackingRouter = require('./routes/offlineTracking');
 const onlineTrackingRouter = require('./routes/onlineTracking');
-const logUseRouter = require('./routes/logUse');
+//const logUseRouter = require('./routes/logUse');
 const sector = require('./routes/sector');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -121,7 +121,7 @@ app.use('/manager', managerRouter);
 app.use('/station', stationRouter);
 app.use('/offlineTracking', offlineTrackingRouter);
 app.use('/onlineTracking', onlineTrackingRouter);
-app.use('/logUse', logUseRouter);
+//app.use('/logUse', logUseRouter);
 app.use('/sector', sector);
 
 

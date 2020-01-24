@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<header class="header_dashboard">
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <img class="img_logo"src="/images/Logo_Modera_2.png" align="left">
+  <a  href="/logout"><img class="img_usuario"src="/images/usuario_logo.png"  align="right"></a>
+
+</header>
+
+<body onload= "atualizar()">
+  <div id="mySidenav" class="sidenav">
+      <a style="text-decoration:none" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <h5 class="ml-5">GESTOR</h5>
+      <hr>
+      <a class="ml-5" style="text-decoration:none" href="/station/list">Cadastro de Atendentes</a>
+      <a class="ml-5" style="text-decoration:none" href="/onlineTracking/list">Acompanhamento On-line</a>
+      <!-- <a class="ml-5" style="text-decoration:none" href="/logUse">Log de uso</a>
+      <a class="ml-5" style="text-decoration:none" href="/offlineTracking/list">Acompanhamento off-line</a>
+      <a class="ml-5" style="text-decoration:none" href="/">Acompanhamento Gráfico</a> -->
+  </div>
+
+  <div  class="menu_fechado">
+    <span style="font-size:30px" onclick="openNav()">&#9776;</span>
+  </div>
+
+  <div id="main" >
+    {{{body}}}
+  </div>
+
+  <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.1.min.js'></script>
+  <script src="/javascripts/dashboard.js"></script>
+  <script src="/javascripts/jquery.js" charset="utf-8"></script>
+  <script src="/bootstrap/js/bootstrap.bundle.min.js" charset="utf-8"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</body>
+
+  <footer class="dashboard_page">
+    <div class="footer" align="center">
+      <br>
+      <p>&copy 2019 Modera. Todos os direitos reservados </p>
+    </div>
+  </footer>
+
+</html>

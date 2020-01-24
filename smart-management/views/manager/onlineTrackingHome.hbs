@@ -1,6 +1,8 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link  rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 <!-- <meta http-equiv="refresh" content="5"> -->
 <script src="/javascripts/search.js"></script>
+<script src="/javascripts/dashboard.js"></script>
+<script src="/javascripts/jquery.js" charset="utf-8"></script>
 
 <div class="movap-titulo">
   <h4 align="left">ACOMPANHAMENTO ONLINE</h4>
@@ -24,13 +26,13 @@
             </div>
             <div class="row" >
               <table id="myTable" class="table table-bordered table-responsive-sm mt-3 border-dark border">
-                <tbody id="myTable">
-                    {{#each stations}}
+                <tbody id="table-body">
+                    <!-- {{#each stations}}
                     <tr>
                     <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
-                    <th scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                    <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
                     </tr>
-                    {{/each}}
+                    {{/each}} -->
                 </tbody>
                 </table>
             </div>
