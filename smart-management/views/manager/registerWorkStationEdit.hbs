@@ -1,6 +1,6 @@
 <div class="movap-titulo">
-  <h4 align="left">CADASTRO DE ATENDENTES</h4>
-  <hr>
+    <h4 align="left">CADASTRO DE ATENDENTES</h4>
+    <hr>
 </div>
 
 
@@ -9,101 +9,168 @@
         <div class="col-lg-8">
             <form action="/station/{{station.id}}" class="col-lg-10" method="post">
                 <div class="form-group col-lg-8">
-                    <p class="movap-nomes" align="left">Matrícula</p> 
+                    <p class="movap-nomes" align="left">Matrícula</p>
                     {{!-- mudou o código da estação para matricula --}}
-                    <input type="text" class="form-control" id="intentificação" name="station[codeStation]" value={{station.codeStation}} readonly>
+                    <input type="text" class="form-control" id="intentificação" name="station[codeStation]"
+                        value="{{station.codeStation}}" readonly>
                 </div>
                 <div class="form-group col-lg-8">
                     <p class="movap-nomes" align="left">Código do Aparelho</p>
-                    <input type="text" class="form-control" id="intentificação" name="station[deviceNumber]" value={{station.idesp}}>
+                    <input type="text" class="form-control" id="intentificação" name="station[idesp]"
+                        value="{{station.idesp}}">
                 </div>
                 <div class="form-group col-lg-8">
                     <p class="movap-nomes" align="left">Nome do Colaborador</p>
-                    <input type="text" class="form-control" id="intentificação" name="station[nameEmployed]" value={{station.nameEmployed}}>
+                    <input type="text" class="form-control" id="intentificação" name="station[nameEmployed]"
+                        value="{{station.nameEmployed}}">
                 </div>
                 <div class="form-group col-lg-8">
                     <p class="movap-nomes" align="left">Tempo de tolerância para uso do aparelho</p>
-                    <input type="time" class="form-control" id="intentificação" name="station[toleranceTime]" value={{station.toleranceTime}}>
+                    <input type="time" class="form-control" id="intentificação" name="station[toleranceTime]"
+                        value="{{station.toleranceTime}}">
                 </div>
                 <div class="form-group col-lg-8">
                     <p class="movap-nomes" align="left">Status</p>
-                    <select class="form-control" id="exampleFormControlSelect1" name="station[status]" value={{station.status}}>
-                    <option>Trabalho</option>
-                    <option>Férias</option>
-                    <option>Atestado</option>
-                    <option>Falta</option>
+                    <select class="form-control" id="exampleFormControlSelect1" name="station[status]"
+                        value="{{station.status}}">
+                        <option>Trabalho</option>
+                        <option>Férias</option>
+                        <option>Atestado</option>
+                        <option>Falta</option>
                     </select>
                 </div>
                 <div class="form-group col-lg-8">
                     <p class="movap-nomes" align="left">Horário de entrada</p>
-                    <input type="time" class="form-control" id="intentificação" name="station[inputHour]" value={{station.inputHour}}>
+                    {{#compare station.inputTime.inputHour 9 operator='<'}}
+                        {{#compare station.inputTime.inputMin 9 operator='<'}}
+                        <input type="time" class="form-control" id="intentificação" name="station[inputTime][inputHour]"
+                            value="0{{station.inputTime.inputHour}}:0{{station.inputTime.inputMin}}">
+                        {{/compare}}
+                        {{#compare station.inputTime.inputMin 9 operator='>'}}
+                        <input type="time" class="form-control" id="intentificação" name="station[inputTime][inputHour]"
+                            value="0{{station.inputTime.inputHour}}:{{station.inputTime.inputMin}}">
+                        {{/compare}}
+                    {{/compare}}
+                    {{#compare station.inputTime.inputHour 9 operator='>'}}
+                        {{#compare station.inputTime.inputMin 9 operator='<'}}
+                        <input type="time" class="form-control" id="intentificação" name="station[inputTime][inputHour]"
+                            value="{{station.inputTime.inputHour}}:0{{station.inputTime.inputMin}}">
+                        {{/compare}}
+                        {{#compare station.inputTime.inputMin 9 operator='>'}}
+                        <input type="time" class="form-control" id="intentificação" name="station[inputTime][inputHour]"
+                            value="{{station.inputTime.inputHour}}:{{station.inputTime.inputMin}}">
+                        {{/compare}}
+                        {{/compare}}
+                    <input type="hidden" name="station[inputTime][inputMin]">
+
                 </div>
                 <div class="form-group col-lg-8">
                     <p class="movap-nomes" align="left">Horário de saída</p>
-                    <input type="time" class="form-control" id="intentificação" name="station[outputHour]" value={{station.outputHour}}>
+                    {{#compare station.outputTime.outputHour 9 operator='<'}}
+                    
+                        {{#compare station.outputTime.outputMin 9 operator='<'}}
+                        <input type="time" class="form-control" id="intentificação" name="station[outputTime][outputHour]"
+                            value="0{{station.outputTime.outputHour}}:0{{station.outputTime.outputMin}}">
+                        {{/compare}}
+                    
+                        {{#compare station.outputTime.outputMin 9 operator='>'}}
+                        <input type="time" class="form-control" id="intentificação" name="station[outputTime][outputHour]"
+                            value="0{{station.outputTime.outputHour}}:{{station.outputTime.outputMin}}">
+                        {{/compare}}
+                    
+                    {{/compare}}
+
+                    {{#compare station.outputTime.outputHour 9 operator='>'}}
+                        
+                        {{#compare station.outputTime.outputMin 9 operator='<'}}
+                        <input type="time" class="form-control" id="intentificação" name="station[outputTime][outputHour]"
+                            value="{{station.outputTime.outputHour}}:0{{station.outputTime.outputMin}}">
+                        {{/compare}}
+                        
+                        {{#compare station.outputTime.outputMin 9 operator='>'}}
+                        <input type="time" class="form-control" id="intentificação" name="station[outputTime][outputHour]"
+                            value="{{station.outputTime.outputHour}}:{{station.outputTime.outputMin}}">
+                        {{/compare}}
+
+                    {{/compare}}
+                    <input type="hidden" name="station[outputTime][outputMin]">
                 </div>
                 <div class="form-group col-lg-8">
                     <p class="movap-nomes pb-2" align="left">Dias da Semana</p>
                     {{#compare station.weekday.monday 1}}
-                    <input type="checkbox" checked name='station[weekday][monday]' value={{station.weekday.monday}}>Segunda</input>
+                    <input type="checkbox" checked name='station[weekday][monday]'
+                        value="1">Segunda</input>
                     {{else}}
-                    <input type="checkbox"  name='station[weekday][monday]' value={{station.weekday.monday}}>Segunda</input>
+                    <input type="checkbox" name='station[weekday][monday]'
+                        value="1">Segunda</input>
                     {{/compare}}
 
                     {{#compare station.weekday.tuesday 1}}
-                    <input type="checkbox" checked name='station[weekday][tuesday]' value={{station.weekday.tuesday}}>Terça</input>
+                    <input type="checkbox" checked name='station[weekday][tuesday]'
+                        value="1">Terça</input>
                     {{else}}
-                    <input type="checkbox" name='station[weekday][tuesday]' value={{station.weekday.tuesday}}>Terça</input>
+                    <input type="checkbox" name='station[weekday][tuesday]'
+                        value="1">Terça</input>
                     {{/compare}}
 
                     {{#compare station.weekday.wednesday 1}}
-                    <input type="checkbox" checked name='station[weekday][wednesday]' value={{station.weekday.wednesday}}>Quarta</input>
+                    <input type="checkbox" checked name='station[weekday][wednesday]'
+                        value="1">Quarta</input>
                     {{else}}
-                    <input type="checkbox" name='station[weekday][wednesday]' value={{station.weekday.wednesday}}>Quarta</input>
+                    <input type="checkbox" name='station[weekday][wednesday]'
+                        value="1">Quarta</input>
                     {{/compare}}
 
                     {{#compare station.weekday.thursday 1}}
-                    <input type="checkbox" checked name='station[weekday][thursday]' value={{station.weekday.thursday}}>Quinta</input>
+                    <input type="checkbox" checked name='station[weekday][thursday]'
+                        value="1">Quinta</input>
                     {{else}}
-                    <input type="checkbox" name='station[weekday][thursday]' value={{station.weekday.thursday}}>Quinta</input>
+                    <input type="checkbox" name='station[weekday][thursday]'
+                        value="1">Quinta</input>
                     {{/compare}}
 
-                   
+
                     {{#compare station.weekday.friday 1}}
-                    <input type="checkbox" checked name='station[weekday][friday]' value={{station.weekday.friday}}>Sexta</input>
+                    <input type="checkbox" checked name='station[weekday][friday]'
+                        value="1">Sexta</input>
                     {{else}}
-                    <input type="checkbox"  name='station[weekday][friday]' value={{station.weekday.friday}}>Sexta</input>
+                    <input type="checkbox" name='station[weekday][friday]'
+                        value="1">Sexta</input>
                     {{/compare}}
 
                     {{#compare station.weekday.saturday 1}}
-                    <input type="checkbox" checked name='station[weekday][saturday]' value={{station.weekday.saturday}}>Sábado</input>
+                    <input type="checkbox" checked name='station[weekday][saturday]'
+                        value="1">Sábado</input>
                     {{else}}
-                    <input type="checkbox"  name='station[weekday][saturday]' value={{station.weekday.saturday}}>Sábado</input>
+                    <input type="checkbox" name='station[weekday][saturday]'
+                        value="1">Sábado</input>
                     {{/compare}}
 
                     {{#compare station.weekday.sunday 1}}
-                    <input type="checkbox" checked name='station[weekday][sunday]' value={{station.weekday.sunday}}>Domingo</input>
+                    <input type="checkbox" checked name='station[weekday][sunday]'
+                        value="1">Domingo</input>
                     {{else}}
-                    <input type="checkbox"  name='station[weekday][sunday]' value={{station.weekday.sunday}}>Domingo</input>
+                    <input type="checkbox" name='station[weekday][sunday]'
+                        value="1">Domingo</input>
                     {{/compare}}
-                </div>  
+                </div>
                 <div class="row">
                     <div class="d-flex pl-3  movap">
-                        <button type="submit"  class="mr-auto p-2 btn btn-primary" >CONFIRMAR</button>
+                        <button type="submit" class="mr-auto p-2 btn btn-primary">CONFIRMAR</button>
                     </div>
+            </form>
+            <div class="d-flex pl-3  movap">
+                <form action="/station/delete/{{station.id}}" method="POST">
+                    <button type="submit" class="mr-auto p-2 btn btn-primary"
+                        onclick="return confirm('Você têm certeza que deseja excluir a estação {{station.codeStation}}?')"
+                        id="excluir">EXCLUIR</button>
                 </form>
-                    <div class="d-flex pl-3  movap">
-                        <form action="/station/delete/{{station.id}}" method="POST">
-                            <button type="submit"  class="mr-auto p-2 btn btn-primary" onclick="return confirm('Você têm certeza que deseja excluir a estação {{station.codeStation}}?')" id="excluir" >EXCLUIR</button>
-                        </form> 
-                    </div>
-                </div>           
-                    
             </div>
-            
         </div>
+
     </div>
+
+</div>
+</div>
 </div>
 <br><br><br><br><br><br>
-
-

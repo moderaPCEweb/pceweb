@@ -27,12 +27,384 @@
             <div class="row" >
               <table id="myTable" class="table table-bordered table-responsive-sm mt-3 border-dark border">
                 <tbody id="table-body">
-                    <!-- {{#each stations}}
+                    {{#each stations}}
                     <tr>
-                    <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
-                    <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+            {{#compare status "Trabalho" operator='=='}}
+                {{#compare ../dia 0 operator='=='}}
+                {{#if weekday.sunday}}
+
+                    {{#compare inputTime.inputHour outputTime.outputHour operator='<'}}
+
+                        {{#compare inputTime.inputHour ../h operator='<'}}
+
+                            {{#compare outputTime.outputHour ../h operator='>'}}                            
+                                    <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                    <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+
+                                {{#compare outputTime.outputHour ../h operator='=='}}
+                                    {{#compare outputTime.outputMin ../m operator='>='}}
+                                    
+                                        <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                        <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                                    {{/compare}}
+                                {{/compare}}
+                        {{/compare}}
+
+                        {{#compare inputTime.inputHour ../h operator='=='}}
+                            {{#compare inputTime.inputHour ../m operator='<'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+                    {{/compare}}
+
+<!-- ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________-->
+
+                    {{#compare outputTime.outputHour inputTime.inputHour operator='<'}}
+
+                        {{#compare inputTime.inputHour ../h operator='>'}}
+                            <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                            <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                        {{/compare}}
+
+                        {{#compare outputTime.outputHour ../h operator='>'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                        {{/compare}}
+
+                        {{#compare inputTime.inputHour ../h operator='=='}}
+                            {{#compare inputTime.inputMin ../m operator='<='}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+
+                        {{#compare outputTime.outputHour ../h operator='=='}}
+                            {{#compare outputTime.outputMin ../m operator='>'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+                            
+                    {{/compare}}
+                    {{/if}}
+                    {{/compare}}
+<!---->
+
+{{#compare ../dia 1 operator='=='}}
+                {{#if weekday.monday}}
+
+                    {{#compare inputTime.inputHour outputTime.outputHour operator='<'}}
+
+                        {{#compare inputTime.inputHour ../h operator='<'}}
+
+                            {{#compare outputTime.outputHour ../h operator='>'}}                            
+                                    <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                    <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+
+                                {{#compare outputTime.outputHour ../h operator='=='}}
+                                    {{#compare outputTime.outputMin ../m operator='>='}}
+                                    
+                                        <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                        <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                                    {{/compare}}
+                                {{/compare}}
+                        {{/compare}}
+
+                        {{#compare inputTime.inputHour ../h operator='=='}}
+                            {{#compare inputTime.inputHour ../m operator='<'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+                    {{/compare}}
+
+<!-- ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________-->
+
+                    {{#compare outputTime.outputHour inputTime.inputHour operator='<'}}
+
+                        {{#compare inputTime.inputHour ../h operator='>'}}
+                            <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                            <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                        {{/compare}}
+
+                        {{#compare outputTime.outputHour ../h operator='>'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                        {{/compare}}
+
+                        {{#compare inputTime.inputHour ../h operator='=='}}
+                            {{#compare inputTime.inputMin ../m operator='<='}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+
+                        {{#compare outputTime.outputHour ../h operator='=='}}
+                            {{#compare outputTime.outputMin ../m operator='>'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+                            
+                    {{/compare}}
+                    {{/if}}
+                    {{/compare}}
+<!---->
+{{#compare ../dia 3 operator='=='}}
+                {{#if weekday.tuesday}}
+
+                    {{#compare inputTime.inputHour outputTime.outputHour operator='<'}}
+
+                        {{#compare inputTime.inputHour ../h operator='<'}}
+
+                            {{#compare outputTime.outputHour ../h operator='>'}}                            
+                                    <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                    <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+
+                                {{#compare outputTime.outputHour ../h operator='=='}}
+                                    {{#compare outputTime.outputMin ../m operator='>='}}
+                                    
+                                        <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                        <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                                    {{/compare}}
+                                {{/compare}}
+                        {{/compare}}
+
+                        {{#compare inputTime.inputHour ../h operator='=='}}
+                            {{#compare inputTime.inputHour ../m operator='<'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+                    {{/compare}}
+
+<!-- ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________-->
+
+                    {{#compare outputTime.outputHour inputTime.inputHour operator='<'}}
+
+                        {{#compare inputTime.inputHour ../h operator='>'}}
+                            <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                            <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                        {{/compare}}
+
+                        {{#compare outputTime.outputHour ../h operator='>'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                        {{/compare}}
+
+                        {{#compare inputTime.inputHour ../h operator='=='}}
+                            {{#compare inputTime.inputMin ../m operator='<='}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+
+                        {{#compare outputTime.outputHour ../h operator='=='}}
+                            {{#compare outputTime.outputMin ../m operator='>'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+                            
+                    {{/compare}}
+                    {{/if}}
+                    {{/compare}}
+<!---->
+{{#compare ../dia 4 operator='=='}}
+                {{#if weekday.thursday}}
+
+                    {{#compare inputTime.inputHour outputTime.outputHour operator='<'}}
+
+                        {{#compare inputTime.inputHour ../h operator='<'}}
+
+                            {{#compare outputTime.outputHour ../h operator='>'}}                            
+                                    <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                    <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+
+                                {{#compare outputTime.outputHour ../h operator='=='}}
+                                    {{#compare outputTime.outputMin ../m operator='>='}}
+                                    
+                                        <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                        <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                                    {{/compare}}
+                                {{/compare}}
+                        {{/compare}}
+
+                        {{#compare inputTime.inputHour ../h operator='=='}}
+                            {{#compare inputTime.inputHour ../m operator='<'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+                    {{/compare}}
+
+<!-- ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________-->
+
+                    {{#compare outputTime.outputHour inputTime.inputHour operator='<'}}
+
+                        {{#compare inputTime.inputHour ../h operator='>'}}
+                            <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                            <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                        {{/compare}}
+
+                        {{#compare outputTime.outputHour ../h operator='>'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                        {{/compare}}
+
+                        {{#compare inputTime.inputHour ../h operator='=='}}
+                            {{#compare inputTime.inputMin ../m operator='<='}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+
+                        {{#compare outputTime.outputHour ../h operator='=='}}
+                            {{#compare outputTime.outputMin ../m operator='>'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+                            
+                    {{/compare}}
+                    {{/if}}
+                    {{/compare}}
+<!---->
+{{#compare ../dia 5 operator='=='}}
+                {{#if weekday.friday}}
+
+                    {{#compare inputTime.inputHour outputTime.outputHour operator='<'}}
+
+                        {{#compare inputTime.inputHour ../h operator='<'}}
+
+                            {{#compare outputTime.outputHour ../h operator='>'}}                            
+                                    <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                    <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+
+                                {{#compare outputTime.outputHour ../h operator='=='}}
+                                    {{#compare outputTime.outputMin ../m operator='>='}}
+                                    
+                                        <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                        <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                                    {{/compare}}
+                                {{/compare}}
+                        {{/compare}}
+
+                        {{#compare inputTime.inputHour ../h operator='=='}}
+                            {{#compare inputTime.inputHour ../m operator='<'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+                    {{/compare}}
+
+<!-- ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________-->
+
+                    {{#compare outputTime.outputHour inputTime.inputHour operator='<'}}
+
+                        {{#compare inputTime.inputHour ../h operator='>'}}
+                            <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                            <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                        {{/compare}}
+
+                        {{#compare outputTime.outputHour ../h operator='>'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                        {{/compare}}
+
+                        {{#compare inputTime.inputHour ../h operator='=='}}
+                            {{#compare inputTime.inputMin ../m operator='<='}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+
+                        {{#compare outputTime.outputHour ../h operator='=='}}
+                            {{#compare outputTime.outputMin ../m operator='>'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+                            
+                    {{/compare}}
+                    {{/if}}
+                    {{/compare}}
+<!---->
+
+
+
+
+
+                {{#compare ../dia 6 operator='=='}}
+                {{#if weekday.saturday}}
+
+                    {{#compare inputTime.inputHour outputTime.outputHour operator='<'}}
+
+                        {{#compare inputTime.inputHour ../h operator='<'}}
+
+                            {{#compare outputTime.outputHour ../h operator='>'}}                            
+                                    <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                    <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+
+                                {{#compare outputTime.outputHour ../h operator='=='}}
+                                    {{#compare outputTime.outputMin ../m operator='>='}}
+                                    
+                                        <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                        <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                                    {{/compare}}
+                                {{/compare}}
+                        {{/compare}}
+
+                        {{#compare inputTime.inputHour ../h operator='=='}}
+                            {{#compare inputTime.inputHour ../m operator='<'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+                    {{/compare}}
+
+<!-- ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________-->
+
+                    {{#compare outputTime.outputHour inputTime.inputHour operator='<'}}
+
+                        {{#compare inputTime.inputHour ../h operator='>'}}
+                            <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                            <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                        {{/compare}}
+
+                        {{#compare outputTime.outputHour ../h operator='>'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                        {{/compare}}
+
+                        {{#compare inputTime.inputHour ../h operator='=='}}
+                            {{#compare inputTime.inputMin ../m operator='<='}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+
+                        {{#compare outputTime.outputHour ../h operator='=='}}
+                            {{#compare outputTime.outputMin ../m operator='>'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+                        {{/compare}}
+                            
+                    {{/compare}}
+                    {{/if}}
+                    {{/compare}}
+                    {{/compare}}
+
                     </tr>
-                    {{/each}} -->
+                    {{/each}}
                 </tbody>
                 </table>
             </div>
