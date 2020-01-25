@@ -29,41 +29,61 @@
                 <tbody id="table-body">
                     {{#each stations}}
                     <tr>
-                        
-                     {{#compare inputTime.inputHour h operator='<'}}
-                        {{#compare outputTime.outputHour h operator='>='}}
-                            {{#compare outputTime.outputMin m operator='>='}}
-                            
+
+                    {{#compare station.inputTime.inputHour station.outputTime.outputHour operator='<'}}
+
+                        {{#compare station.inputTime.inputHour h operator='<'}}
+
+                            {{#compare station.outputTime.outputHour h operator='>'}}                            
+                                    <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                    <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                            {{/compare}}
+
+                                {{#compare station.outputTime.outputHour h operator='=='}}
+                                    {{#compare station.outputTime.outputMin m operator='>='}}
+                                    
+                                        <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                        <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                                    {{/compare}}
+                                {{/compare}}
+                        {{/compare}}
+
+                        {{#compare station.inputTime.inputHour h operator='=='}}
+                            {{#compare station.inputTime.inputHour m operator='<'}}
                                 <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
                                 <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
                             {{/compare}}
                         {{/compare}}
                     {{/compare}}
 
-                    {{#compare inputTime.inputHour h operator='=='}}
-                        {{#compare inputTime.inputHour m operator='>'}}
+<!-- ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________-->
+
+                    {{#compare station.outputTime.outputHour station.inputTime.inputHour operator='<'}}
+
+                        {{#compare station.inputTime.inputHour h operator='>'}}
                             <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
                             <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
                         {{/compare}}
-                    {{/compare}}
 
-                    {{#compare outputTime.outputHour inputTime.inputHour operator='<'}}
-                        {{#compare outputTime.outputHour h operator='<='}}
-                            {{#compare outputTime.outputMin m operator='<'}}
+                        {{#compare station.outputTime.outputHour h operator='>'}}
+                                <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
+                                <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                        {{/compare}}
 
+                        {{#compare station.inputTime.inputHour h operator='=='}}
+                            {{#compare station.inputTime.inputMin m operator='<='}}
                                 <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
                                 <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
                             {{/compare}}
-                        {{else}}
-                        {{#compare inputTime.inputHour h operator='<='}}
-                            {{#compare outputTime.outputMin m operator='>'}}
+                        {{/compare}}
 
+                        {{#compare station.outputTime.outputHour h operator='=='}}
+                            {{#compare station.outputTime.outputMin m operator='>'}}
                                 <th scope="row" class="font-book text-left">{{nameEmployed}}</th>
                                 <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
                             {{/compare}}
-
                         {{/compare}}
-                        {{/compare}}
+                            
                     {{/compare}}
 
                     </tr>
