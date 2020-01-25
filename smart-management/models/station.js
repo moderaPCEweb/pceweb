@@ -18,8 +18,14 @@ const StationSchema = new mongoose.Schema({
     toleranceTime: String,
     status: String,
     officeHours: String,
-    inputHour: String,
-    outputHour: String,
+    inputTime: {
+      inputHour: Number,
+      inputMin: Number,
+    },
+    outputTime: {
+    outputHour: Number,
+    outputMin: Number
+    },
     weekday: {
       monday: {
         type: Boolean,

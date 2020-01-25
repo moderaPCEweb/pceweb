@@ -34,11 +34,14 @@
             </div>
             <div class="form-group col-lg-8">
                 <p class="movap-nomes" align="left">Horário de entrada</p>
-                <input type="time" class="form-control" id="intentificação" placeholder="" name="station[inputHour]" required>
+                <input type="time" class="form-control" id="intentificação" placeholder="" name="station[inputTime][inputHour]" required>
+                <input type="hidden" name="station[inputTime][inputMin]">
             </div>
             <div class="form-group col-lg-8">
                 <p class="movap-nomes" align="left">Horário de saída</p>
-                <input type="time" class="form-control" id="intentificação" placeholder="" name="station[outputHour]" required>
+                <input type="time" class="form-control" id="intentificação" placeholder="" name="station[outputTime][outputHour]" required>
+                <input type="hidden" name="station[outputTime][outputMin]">
+
             </div>
             <div class="form-group col-lg-8">
                 <p class="movap-nomes pb-2" align="left">Dias da Semana</p>

@@ -6,6 +6,8 @@ const Client = require('../models/clients');
 const Station = require('../models/station');
 const Manager = require('../models/manager');
 const User = require('../models/user');
+const split = require('split-string');
+
 
 const router = express.Router();
 
@@ -63,6 +65,12 @@ router.get('/logUse/:id',auth.isAuthenticated,auth.isManager,(req, res) => {
 
 router.post('/signup', function(req, res, next){
   const ativa = req.body.station;
+  var inTime = split(ativa.inputTime.inputHour, { separator: ':' }); 
+  ativa.inputTime.inputHour = inTime[0];
+  ativa.inputTime.inputMin = inTime[1];
+  var outTime = split(ativa.outputTime.outputHour, { separator: ':' });
+  ativa.outputTime.outputHour = outTime[0];
+  ativa.outputTime.outputMin = outTime[1];
   ativa.id_m = req.session.id_t;
   ativa.manager = req.session._id;
   Station.create(ativa).then((id) => {
@@ -83,6 +91,16 @@ router.post('/delete/:id' , (req,res) => {
 
 router.post('/:id',(req, res) => {
   const station = req.body.station;
+  var inTime = split(station.inputTime.inputHour, { separator: ':' }); 
+  station.inputTime.inputHour = inTime[0];
+  station.inputTime.inputMin = inTime[1];
+  var outTime = split(station.outputTime.outputHour, { separator: ':' });
+  station.outputTime.outputHour = outTime[0];
+  station.outputTime.outputMin = outTime[1];
+  console.log("____________________________________________");
+  console.log(station);
+  console.log("____________________________________________");
+
   const stationId = req.params.id;
   Station.getById(req.params.id).then((oldStation) => {
 //    Manager.removeStation(oldStation.manager, stationId).catch((error) => {
