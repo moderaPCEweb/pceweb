@@ -20,6 +20,11 @@ router.get('/dashboard',auth.isAuthenticated,(req, res) => {
   res.render('dashboard', { title: 'Home' });
 });
 
+router.get('/capacitacao', (req, res) => {
+  res.render('capacitacao', { title: 'Capacitacao'});
+});
+
+
 
 /* POST Login */
 router.post('/login', (req, res) => {

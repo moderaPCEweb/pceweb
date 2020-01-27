@@ -1,0 +1,40 @@
+<div>
+    <canvas id="myChart" width="700" height="400"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script>
+    var canvas = document.getElementById('myChart').getContext('2d');
+
+    var myChart = new Chart(canvas, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ['1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm', '10pm'],
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 1, 1, 0, 1, 1, 0, 1, 0, 1]
+            }]
+        },
+
+        // Configuration options go here
+        options: {
+            responsive: false,
+            legend: {
+                display: false,
+            },
+            tooltips: {
+                enabled: false,
+            },
+            elements: {
+                line: {
+                    cubicInterpolationMode: 'monotone',
+                },
+            },
+        }
+    });
+</script>
