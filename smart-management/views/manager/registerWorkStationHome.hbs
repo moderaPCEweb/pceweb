@@ -4,7 +4,7 @@
 </div>
 <div class="col">
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-5">
             <div class="bg clearfix col-11">
                 <button type="button" class="btn btn-primary btn-info  btn-secondary "  aria-haspopup="true" aria-expanded="false"/><a  style="color:#ffffff" href="/station/signup">NOVO</a></button>
             </div>
@@ -12,9 +12,10 @@
               <tbody id="myTable" class="element">
                 {{#each stations}}
                 <tr>
-                  <th scope="row" class="font-book text-center " onclick="location.href='/station/edit/{{id}}'">{{idesp}} - {{nameEmployed}}</th>
+                  <th scope="row" class="font-book text-left " onclick="location.href='/station/edit/{{id}}'">{{idesp}}</th>
+                  <th scope="row" class="font-book text-left " onclick="location.href='/station/edit/{{id}}'">{{nameEmployed}}</th>
                   <th width="50" scope="row" class="font-book text-center " onclick="location.href='/station/edit/{{id}}'">. . .</th>
-                      <th  <button type="button" class="btn btn-primary"  onclick="location.href='/station/logUse/{{id}}'">Info</button> </th>
+                  <th  type="button"  onclick="location.href='/station/logUse/{{id}}'"><img src="https://image.flaticon.com/icons/png/512/68/68917.png" width=40 height=40></th>
                 </tr>
                 {{/each}}
               </tbody>
