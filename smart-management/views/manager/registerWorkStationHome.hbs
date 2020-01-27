@@ -1,5 +1,6 @@
 <div class="movap-titulo">
   <h4 align="left">LISTA DE ATENDENTES</h4>
+  <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
   <hr>
 </div>
 <div class="col">
@@ -8,14 +9,15 @@
             <div class="bg clearfix col-11">
                 <button type="button" class="btn btn-primary btn-info  btn-secondary "  aria-haspopup="true" aria-expanded="false"/><a  style="color:#ffffff" href="/station/signup">NOVO</a></button>
             </div>
-            <table class="table table-bordered table-responsive-sm mt-4">
+            <table class="table table-bordered mt-3">
               <tbody id="myTable" class="element">
                 {{#each stations}}
                 <tr>
                   <th scope="row" class="font-book text-left " onclick="location.href='/station/edit/{{id}}'">{{idesp}}</th>
                   <th scope="row" class="font-book text-left " onclick="location.href='/station/edit/{{id}}'">{{nameEmployed}}</th>
-                  <th width="50" scope="row" class="font-book text-center " onclick="location.href='/station/edit/{{id}}'">. . .</th>
-                  <th  type="button"  onclick="location.href='/station/logUse/{{id}}'"><img src="https://image.flaticon.com/icons/png/512/68/68917.png" width=40 height=40></th>
+                  <th width="50" scope="row" class="font-book text-center" onclick="location.href='/station/edit/{{id}}'">...</th>
+                   <th id="Atualizar" scope="row" class="font-book text-center {{dataesp}}">{{dataesp}}</th>
+                  <th  type="button"  onclick="location.href='/station/logUse/{{id}}'"><img src="https://image.flaticon.com/icons/png/512/68/68917.png" width=20 height=20></th>
                 </tr>
                 {{/each}}
               </tbody>
