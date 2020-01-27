@@ -17,7 +17,8 @@
                 label: 'My First dataset',
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
-                data: [0, 1, 1, 0, 1, 1, 0, 1, 0, 1]
+                lineTension: 0,
+                data: [0, 1, 1, 0, 1, 1, 0, 1, 0, 1],
             }]
         },
 
@@ -30,11 +31,53 @@
             tooltips: {
                 enabled: false,
             },
-            elements: {
-                line: {
-                    cubicInterpolationMode: 'monotone',
-                },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        max: 1.5,
+                        min: 0,
+                        stepSize: 1
+                    },
+                    gridLines: {
+                        display: false
+                    },
+                    display: false,
+                }],
+                xAxes: [{
+                    gridLines: {
+                        display: false
+                    }
+                }],
             },
-        }
+        },
     });
+
+    $(document).ready(update);
+
+
+    function update() {
+        $.get('/receberDados', (data) => {
+            updatechart(data);
+        });
+
+        setTimeout(update, 6000);
+    }
+
+    function updatechart(response) {
+        var eixox = []
+        var eixoy = []
+        console.log(response);
+        for (let i = 0; i < response.length / 5; i++) {
+            eixoy[i] = response[i]['data'];
+            eixox[i] = i;
+        }
+        console.log(eixoy);
+        console.log(eixox);
+
+        myChart.data.labels = eixox;
+        myChart.data.datasets[0].data = eixoy;
+
+        myChart.update();
+    }
+
 </script>
