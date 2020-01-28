@@ -1,6 +1,32 @@
-<div>
-    <canvas id="myChart" width="700" height="400"></canvas>
+<div class="col-md-12 text-center">
+    <h3>Exemplo de gráfico atualizado em tempo real.</h3>
 </div>
+
+<div class="row text-center">
+    <div class="col-md-4" id="div1"></div>
+    <div class="col-md-4" id="divC">
+        <div class="col-md-12">
+            <canvas id="myChart" width="700" height="400"></canvas>
+        </div>
+    </div>
+    <div class="col-md-4" id="div2"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 btn-group">
+        <button type="button" id="btn1" class="btn btn-primary">Configuração 1 (Grande)</button>
+        <button type="button" id="btn2" class="btn btn-primary">Configuração 2 (Médio)</button>
+        <button type="button" id="btn3" class="btn btn-primary">Configuração 3 (Pequeno)</button>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+
+
+
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
@@ -24,7 +50,7 @@
 
         // Configuration options go here
         options: {
-            responsive: false,
+            responsive: true,
             legend: {
                 display: false,
             },
@@ -66,6 +92,7 @@
     function updatechart(response) {
         var eixox = []
         var eixoy = []
+        console.log("Dados recebidos da base de dados!");
         console.log(response);
         for (let i = 0; i < response.length / 5; i++) {
             eixoy[i] = response[i]['data'];
@@ -79,5 +106,25 @@
 
         myChart.update();
     }
+
+    $(document).ready(function () {
+        $("#btn1").click(function () {
+            $("#divC").attr("class", "col-md-10");
+            $("#div1").attr("class", "col-md-1");
+            $("#div2").attr("class", "col-md-1");
+        });
+
+        $("#btn2").click(function () {
+            $("#divC").attr("class", "col-md-8");
+            $("#div1").attr("class", "col-md-2");
+            $("#div2").attr("class", "col-md-2");
+        });
+
+        $("#btn3").click(function () {
+            $("#divC").attr("class", "col-md-4");
+            $("#div1").attr("class", "col-md-4");
+            $("#div2").attr("class", "col-md-4");
+        });
+    });
 
 </script>
