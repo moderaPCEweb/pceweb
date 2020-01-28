@@ -82,18 +82,16 @@
 
 
     function update() {
-        $.get('/receberDados', (data) => {
-            updatechart(data);
-        });
-
-        setTimeout(update, 6000);
+        $.get('/receberDados', (response) => {
+            console.log("Dados recebidos da base de dados!");
+            updatechart(response);
+        }).then(setTimeout(update, 6000));
     }
 
     function updatechart(response) {
         var eixox = []
         var eixoy = []
-        console.log("Dados recebidos da base de dados!");
-        console.log(response);
+
         for (let i = 0; i < response.length / 5; i++) {
             eixoy[i] = response[i]['data'];
             eixox[i] = i;
@@ -105,6 +103,8 @@
         myChart.data.datasets[0].data = eixoy;
 
         myChart.update();
+
+        console.log("Atualizado!");
     }
 
     $(document).ready(function () {

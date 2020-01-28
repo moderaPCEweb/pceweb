@@ -118,8 +118,7 @@ router.get('/logout', (req, res, next) => {
 
 
 router.get('/receberDados', (req, res) => {
-  sensor.getAll().then((result) => {
-    console.log("Atualizado!");
+  sensor.getAll().then((result) => {    
     res.send(result);
   });
     
