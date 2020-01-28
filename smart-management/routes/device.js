@@ -5,12 +5,12 @@ const Device = require('../models/devices');
 const Client = require('../models/clients');
 const Station = require('../models/station');
 const Manager = require('../models/manager');
-const Sensor = require('../models/sensor');
+const Log = require('../models/log');
 
 
 const router = express.Router();
 
-router.get('/list',auth.isAuthenticated,auth.isADM, (req, res) => {
+router.get('/list', auth.isAuthenticated, auth.isADM, (req, res) => {
   Device.getAll().then((devices) => {
     res.render('admin/deviceList', { title: 'Cadastro de Aparelho', devices });
   }).catch((error) => {
@@ -19,7 +19,7 @@ router.get('/list',auth.isAuthenticated,auth.isADM, (req, res) => {
   });
 });
 
-router.get('/movimentation/:id',auth.isAuthenticated,auth.isADM, (req, res) => {
+router.get('/movimentation/:id', auth.isAuthenticated, auth.isADM, (req, res) => {
   Device.getById(req.params.id).then((device) => {
     Client.getById(device.client).then((client) => {
       console.log(client);
