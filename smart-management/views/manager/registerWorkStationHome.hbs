@@ -24,11 +24,11 @@
           </thead>
           {{#each stations}}
           <tr>
-            <th scope="row" class="font-book text-left " onclick="location.href='/station/edit/{{id}}'">{{idesp}}</th>
-            <th scope="row" class="font-book text-left " onclick="location.href='/station/edit/{{id}}'">{{nameEmployed}}</th>
+            <th scope="row" class="font-book text-left ">{{idesp}}</th>
+            <th scope="row" class="font-book text-left ">{{nameEmployed}}</th>
             <th id="Atualizar" scope="row" class="font-book text-center">{{status}}</th>
-            <th width="50" scope="row" class="font-book text-center" onclick="location.href='/station/edit/{{id}}'"><b>...</b></th>
-            <th onclick="location.href='/station/logUse/{{id}}'"><img src="https://image.flaticon.com/icons/png/512/68/68917.png" width=20 height=20></th>
+            <th width="50" scope="row" style="cursor: pointer;" class="font-book text-center" onclick="location.href='/station/edit/{{id}}'"><b>...</b></th>
+            <th style="cursor: pointer;" onclick="location.href='/station/logUse/{{id}}'"><img src="https://image.flaticon.com/icons/png/512/68/68917.png" width=20 height=20></th>
           </tr>
           {{/each}}
         </tbody>
