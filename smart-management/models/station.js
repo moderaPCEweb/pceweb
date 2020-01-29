@@ -174,7 +174,12 @@ class Station {
     return new Promise((resolve, reject) => {
      StationModel.find({ idesp: id_esp }).exec().then((result) => {
       var id_result=null;
+      console.log("result");
+
+      
       result.forEach(station => {
+        console.log(station);
+        
         if(station.status=="Trabalho"){
           switch (dia) {
             case 0:
