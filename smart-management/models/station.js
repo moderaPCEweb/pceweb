@@ -170,6 +170,205 @@ class Station {
      });
    }
 
+   static getCodestationByTimeAndIdesp(id_esp,dia,hour,min) {
+    return new Promise((resolve, reject) => {
+     StationModel.find({ idesp: id_esp }).exec().then((result) => {
+      var id_result=null;
+      console.log("result");
+
+      
+      result.forEach(station => {
+        console.log(station);
+        
+        if(station.status=="Trabalho"){
+          switch (dia) {
+            case 0:
+              if (station.weekday.sunday){
+                if (station.inputTime.inputHour<station.outputTime.outputHour) {
+                  if (station.inputTime.inputHour<hour) {
+                    if (station.outputTime.outputHour>hour) {
+                      resolve(station);
+                    } else if (station.outputTime.outputHour==hour) {
+                      if (station.outputTime.outputMin>=min) {
+                        resolve(station);
+                      }
+                    } 
+                  }
+                  else if (station.inputTime.inputHour==hour) {
+                    if (station.inputTime.inputHour<=min) {
+                      resolve(station);
+                    }
+                  }
+                }
+                else if (station.outputTime.outputHour<station.inputTime.inputHour) {
+                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                    resolve(station);
+                  }
+                }
+              }
+              break;
+            case 1:
+              if (station.weekday.monday){
+                if (station.inputTime.inputHour<station.outputTime.outputHour) {
+                  if (station.inputTime.inputHour<hour) {
+                    if (station.outputTime.outputHour>hour) {
+                      resolve(station);
+                    } else if (station.outputTime.outputHour==hour) {
+                      if (station.outputTime.outputMin>=min) {
+                        resolve(station);
+                      }
+                    } 
+                  }
+                  else if (station.inputTime.inputHour==hour) {
+                    if (station.inputTime.inputHour<=min) {
+                      resolve(station);
+                    }
+                  }
+                }
+                else if (station.outputTime.outputHour<station.inputTime.inputHour) {
+                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                    resolve(station);
+                  }
+                }
+              }
+              break;
+            case 2:
+              if (station.weekday.tuesday){
+                if (station.inputTime.inputHour<station.outputTime.outputHour) {
+                  if (station.inputTime.inputHour<hour) {
+                    if (station.outputTime.outputHour>hour) {
+                      resolve(station);
+                    } else if (station.outputTime.outputHour==hour) {
+                      if (station.outputTime.outputMin>=min) {
+                        resolve(station);
+                      }
+                    } 
+                  }
+                  else if (station.inputTime.inputHour==hour) {
+                    if (station.inputTime.inputHour<=min) {
+                      resolve(station);
+                    }
+                  }
+                }
+                else if (station.outputTime.outputHour<station.inputTime.inputHour) {
+                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                    resolve(station);
+                  }
+                }
+              }            
+              break;
+            case 3:
+              if (station.weekday.wednesday){
+                if (station.inputTime.inputHour<station.outputTime.outputHour) {
+                  if (station.inputTime.inputHour<hour) {
+                    if (station.outputTime.outputHour>hour) {
+                      resolve(station);
+                    } else if (station.outputTime.outputHour==hour) {
+                      if (station.outputTime.outputMin>=min) {
+                        resolve(station);
+                      }
+                    } 
+                  }
+                  else if (station.inputTime.inputHour==hour) {
+                    if (station.inputTime.inputHour<=min) {
+                      resolve(station);
+                    }
+                  }
+                }
+                else if (station.outputTime.outputHour<station.inputTime.inputHour) {
+                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                    resolve(station);
+                  }
+                }
+              }
+              break;
+            case 4:
+              if (station.weekday.thursday){
+                if (station.inputTime.inputHour<station.outputTime.outputHour) {
+                  if (station.inputTime.inputHour<hour) {
+                    if (station.outputTime.outputHour>hour) {
+                      resolve(station);
+                    } else if (station.outputTime.outputHour==hour) {
+                      if (station.outputTime.outputMin>=min) {
+                        resolve(station);
+                      }
+                    } 
+                  }
+                  else if (station.inputTime.inputHour==hour) {
+                    if (station.inputTime.inputHour<=min) {
+                      resolve(station);
+                    }
+                  }
+                }
+                else if (station.outputTime.outputHour<station.inputTime.inputHour) {
+                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                    resolve(station);
+                  }
+                }
+              }            
+              break;
+            case 5:
+              if (station.weekday.friday){
+                if (station.inputTime.inputHour<station.outputTime.outputHour) {
+                  if (station.inputTime.inputHour<hour) {
+                    if (station.outputTime.outputHour>hour) {
+                      resolve(station);
+                    } else if (station.outputTime.outputHour==hour) {
+                      if (station.outputTime.outputMin>=min) {
+                        resolve(station);
+                      }
+                    } 
+                  }
+                  else if (station.inputTime.inputHour==hour) {
+                    if (station.inputTime.inputHour<=min) {
+                      resolve(station);
+                    }
+                  }
+                }
+                else if (station.outputTime.outputHour<station.inputTime.inputHour) {
+                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                    resolve(station);
+                  }
+                }
+              }
+              break;
+            case 6:
+              if (station.weekday.saturday){
+                if (station.inputTime.inputHour<station.outputTime.outputHour) {
+                  if (station.inputTime.inputHour<hour) {
+                    if (station.outputTime.outputHour>hour) {
+                      resolve(station);
+                    } else if (station.outputTime.outputHour==hour) {
+                      if (station.outputTime.outputMin>=min) {
+                        resolve(station);
+                      }
+                    } 
+                  }
+                  else if (station.inputTime.inputHour==hour) {
+                    if (station.inputTime.inputHour<=min) {
+                      resolve(station);
+                    }
+                  }
+                }
+                else if (station.outputTime.outputHour<station.inputTime.inputHour) {
+                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                    resolve(station);
+                  }
+                }
+              }
+          }
+  
+  
+        }
+  
+      });
+      console.log(id_result);
+      
+     }).catch((err) => {
+       reject(err);
+     });
+    });
+    }
    /**
    * Delete a Station
    * @param {string} id - Station Id

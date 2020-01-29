@@ -47,6 +47,8 @@ class Sensor {
     static create(sensor) {
       return new Promise((resolve, reject) => {
         SensorModel.create(sensor).then((result) => {
+          //console.log("sensor criado "+result._id);
+          
           resolve(result._id);
         }).catch((err) => {
           reject(err);
