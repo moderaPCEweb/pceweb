@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const sensorSchema = new mongoose.Schema({
     data: Number,
     idesp: String,
-    idmac: String
+    idmac: String,
+    codeStation: String
 }, {timestamps: true, static: false});
  // dados:number
  //}, {tmerstamps: true, static: false});
@@ -110,6 +111,21 @@ class Sensor {
     static getByIdData(id,data) {
       return new Promise((resolve, reject) => {
         SensorModel.find({idesp :  id, data : data}).sort({createdAt: 1}).exec().then((result) => {
+          resolve(result);
+        }).catch((err) => {
+          reject(err);
+        });
+      });
+    }
+
+    /**
+     * Get a Log by it's CodeStation
+     * @param {string} idesp - Log Id
+     * @returns {Object} - Log Document Data
+     */
+    static getByCodestation(_codeStation) {
+      return new Promise((resolve, reject) => {
+        SensorModel.find({ codeStation: _codeStation}).sort({createdAt: 1}).exec().then((result) => {
           resolve(result);
         }).catch((err) => {
           reject(err);

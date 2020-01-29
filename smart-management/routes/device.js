@@ -5,7 +5,6 @@ const Device = require('../models/devices');
 const Client = require('../models/clients');
 const Station = require('../models/station');
 const Manager = require('../models/manager');
-const Log = require('../models/log');
 const Sensor = require('../models/sensor');
 
 
@@ -62,7 +61,7 @@ router.post('/receiveData::idesp::data::idmac', (req, res) => {
       //console.log("*******station**********");
       if (station.codeStation) {
       ativa.codeStation = station.codeStation;
-      Log.create(ativa).then((id) => {
+      Sensor.create(ativa).then((id) => {
 
         if (ativa.data == 0) {
           //console.log("Em uso");
@@ -87,14 +86,14 @@ router.post('/receiveData::idesp::data::idmac', (req, res) => {
       });
     
     //console.log("****************ativa****************");
-    Sensor.create(ativa).then((id) => {
-      //console.log("sensor");
-      //console.log(id);
+    // Sensor.create(ativa).then((id) => {
+    //   //console.log("sensor");
+    //   //console.log(id);
       
-    }).catch((error) => {
-      console.log(error);
-    });
-  } else console.log("Sem funcionarios neste horario!");
+    // }).catch((error) => {
+    //   console.log(error);
+    // });
+  } else {console.log("Sem funcionarios neste horario!");}
   
   }).catch((error) => {
     console.log(error);

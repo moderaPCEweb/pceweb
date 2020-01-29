@@ -6,10 +6,8 @@ const Client = require('../models/clients');
 const Station = require('../models/station');
 const Manager = require('../models/manager');
 const User = require('../models/user');
+const Sensor = require('../models/sensor');
 const split = require('split-string');
-const Log = require('../models/log');
-
-
 
 const router = express.Router();
 
@@ -58,7 +56,7 @@ router.get('/edit/:id', auth.isAuthenticated, auth.isManager, (req, res) => {
 router.get('/logUse/:id', auth.isAuthenticated, auth.isManager, (req, res) => {
   Station.getById(req.params.id).then((station) => {
     console.log(station);
-    Log.getByCodestation(station.codeStation).then((log) => {
+    Sensor.getByCodestation(station.codeStation).then((log) => {
       console.log(log);
       console.log("log");
       User.getById(station.manager).then((manager) => {

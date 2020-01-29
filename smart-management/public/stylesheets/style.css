@@ -7200,7 +7200,7 @@ a {
 
 .movap-titulo {
   margin-top: 40px; }
-  
+
 .movap-titulo h4 {
   color: #00aed0;
   font-weight: bold; }
@@ -7288,6 +7288,6 @@ a {
   color: white; }
 
 .btn_new {
-  padding-top: 10px !important; }
+  padding-right: 15px; }
 
 /*# sourceMappingURL=style.css.map */

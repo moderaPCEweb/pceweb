@@ -33,8 +33,8 @@ function searchW() {
   filter = input.value.toUpperCase();
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    th = tr[i].getElementsByTagName("th")[0];
+    for (i = 1; i < tr.length; i++) {
+    th = tr[i].getElementsByTagName("th")[2];
     if (th) {
       txtValue = th.textContent || th.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
