@@ -65,7 +65,7 @@ router.get('/logUse/:id',auth.isAuthenticated,auth.isManager,(req, res) => {
 
 router.post('/signup', function(req, res, next){
   const ativa = req.body.station;
-  var inTime = split(ativa.inputTime.inputHour, { separator: ':' }); 
+  var inTime = split(ativa.inputTime.inputHour, { separator: ':' });
   ativa.inputTime.inputHour = inTime[0];
   ativa.inputTime.inputMin = inTime[1];
   var outTime = split(ativa.outputTime.outputHour, { separator: ':' });
@@ -76,7 +76,11 @@ router.post('/signup', function(req, res, next){
   Station.create(ativa).then((id) => {
     res.redirect('/station/list');
     }).catch((error) => {
+
+      console.log("Matrícula já esta sendo usada");
       console.log(error);
+      res.redirect('/station/signup');
+      req.flash('danger', 'JÁ EM USOOOOOOOOO');
   });
 });
 
@@ -91,7 +95,7 @@ router.post('/delete/:id' , (req,res) => {
 
 router.post('/:id',(req, res) => {
   const station = req.body.station;
-  var inTime = split(station.inputTime.inputHour, { separator: ':' }); 
+  var inTime = split(station.inputTime.inputHour, { separator: ':' });
   station.inputTime.inputHour = inTime[0];
   station.inputTime.inputMin = inTime[1];
   var outTime = split(station.outputTime.outputHour, { separator: ':' });
