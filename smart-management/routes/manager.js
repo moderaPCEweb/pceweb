@@ -50,15 +50,24 @@ router.post('/signup',auth.isAuthenticated,auth.isClienteADM, function(req, res,
       User.create(usuario).then((id) =>{
         console.log("Usuario deu bom");
       }).catch((error) => {
+        console.log("É ESSE É ESSE É ESSE");
         console.log(error);
-        res.redirect('/error');
+        res.redirect('/manager/signup');
       });
       res.redirect('/manager/list');
     }).catch((error) => {
       console.log(error);
     });
   }).catch((error) => {
-    res.redirect('/error');
+    switch (error.code) {
+      case 'auth/email-already-in-use':
+        req.flash('danger', 'Email já está sendo utilizado');
+        break;
+      case 'auth/weak-password':
+        req.flash('danger', 'A senha deve ter no mínimo 6 caracteres');
+        break;
+    }
+    res.redirect('/manager/signup');
     console.log(error);
   });
 });

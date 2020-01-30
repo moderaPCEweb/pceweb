@@ -49,8 +49,8 @@ function searchW() {
 function teste(){
   console.log("entrou");
   var data = new Date();
-  var dia = data.getDay();     
-  var hour = data.getHours();        
+  var dia = data.getDay();
+  var hour = data.getHours();
   var min = data.getMinutes();
   $.get('/onlinetracking/getstation', (stations) =>{
     let tableBody= '';
@@ -67,7 +67,7 @@ function teste(){
                     if (station.outputTime.outputMin>=min) {
                       tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                     }
-                  } 
+                  }
                 }
                 else if (station.inputTime.inputHour==hour) {
                   if (station.inputTime.inputHour<=min) {
@@ -92,7 +92,7 @@ function teste(){
                     if (station.outputTime.outputMin>=min) {
                       tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                     }
-                  } 
+                  }
                 }
                 else if (station.inputTime.inputHour==hour) {
                   if (station.inputTime.inputHour<=min) {
@@ -117,7 +117,7 @@ function teste(){
                     if (station.outputTime.outputMin>=min) {
                       tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                     }
-                  } 
+                  }
                 }
                 else if (station.inputTime.inputHour==hour) {
                   if (station.inputTime.inputHour<=min) {
@@ -130,7 +130,7 @@ function teste(){
                   tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                 }
               }
-            }            
+            }
             break;
           case 3:
             if (station.weekday.wednesday){
@@ -142,7 +142,7 @@ function teste(){
                     if (station.outputTime.outputMin>=min) {
                       tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                     }
-                  } 
+                  }
                 }
                 else if (station.inputTime.inputHour==hour) {
                   if (station.inputTime.inputHour<=min) {
@@ -167,7 +167,7 @@ function teste(){
                     if (station.outputTime.outputMin>=min) {
                       tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                     }
-                  } 
+                  }
                 }
                 else if (station.inputTime.inputHour==hour) {
                   if (station.inputTime.inputHour<=min) {
@@ -180,7 +180,7 @@ function teste(){
                   tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                 }
               }
-            }            
+            }
             break;
           case 5:
             if (station.weekday.friday){
@@ -192,7 +192,7 @@ function teste(){
                     if (station.outputTime.outputMin>=min) {
                       tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                     }
-                  } 
+                  }
                 }
                 else if (station.inputTime.inputHour==hour) {
                   if (station.inputTime.inputHour<=min) {
@@ -217,7 +217,7 @@ function teste(){
                     if (station.outputTime.outputMin>=min) {
                       tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                     }
-                  } 
+                  }
                 }
                 else if (station.inputTime.inputHour==hour) {
                   if (station.inputTime.inputHour<=min) {
@@ -238,10 +238,10 @@ function teste(){
       }
 
     });
-   
+
     $('#table-body').html(tableBody);
     if (document.getElementById("myInput").value.toUpperCase()!="") {
-      search();      
+      search();
     }
     console.log(stations);
 
