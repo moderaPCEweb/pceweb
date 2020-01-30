@@ -50,13 +50,15 @@ router.post('/signup',auth.isAuthenticated,auth.isClienteADM, function(req, res,
       User.create(usuario).then((id) =>{
         console.log("Usuario deu bom");
       }).catch((error) => {
-        console.log("É ESSE É ESSE É ESSE");
+
         console.log(error);
         res.redirect('/manager/signup');
       });
       res.redirect('/manager/list');
     }).catch((error) => {
+      req.flash('danger',"O código do Gestor inserido já está sendo utilizado");
       console.log(error);
+      res.redirect('/manager/signup');
     });
   }).catch((error) => {
     switch (error.code) {

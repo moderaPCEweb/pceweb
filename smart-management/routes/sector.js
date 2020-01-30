@@ -24,7 +24,8 @@ router.post('/signup',auth.isAuthenticated,auth.isClienteADM, function(req, res,
     Sector.create(ativa).then((id) => {
       res.redirect('/sector/list');
     }).catch((error) => {
-      res.redirect('/error');
+      req.flash('danger',"O Código do Setor inserido já está sendo utilizado");
+      res.redirect('/sector/signup');
       console.log(error);
     });
   }).catch((error) => {
