@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const StationSchema = new mongoose.Schema({
     codeStation: {
       type: String,
-      // unique: true
+      unique: true
     }, //trabalhar com o erro depois em cach error
     // devicecode: String,
     id_m: {
@@ -176,10 +176,10 @@ class Station {
       var id_result=null;
       console.log("result");
 
-      
+
       result.forEach(station => {
         console.log(station);
-        
+
         if(station.status=="Trabalho"){
           switch (dia) {
             case 0:
@@ -192,7 +192,7 @@ class Station {
                       if (station.outputTime.outputMin>=min) {
                         resolve(station);
                       }
-                    } 
+                    }
                   }
                   else if (station.inputTime.inputHour==hour) {
                     if (station.inputTime.inputHour<=min) {
@@ -217,7 +217,7 @@ class Station {
                       if (station.outputTime.outputMin>=min) {
                         resolve(station);
                       }
-                    } 
+                    }
                   }
                   else if (station.inputTime.inputHour==hour) {
                     if (station.inputTime.inputHour<=min) {
@@ -242,7 +242,7 @@ class Station {
                       if (station.outputTime.outputMin>=min) {
                         resolve(station);
                       }
-                    } 
+                    }
                   }
                   else if (station.inputTime.inputHour==hour) {
                     if (station.inputTime.inputHour<=min) {
@@ -255,7 +255,7 @@ class Station {
                     resolve(station);
                   }
                 }
-              }            
+              }
               break;
             case 3:
               if (station.weekday.wednesday){
@@ -267,7 +267,7 @@ class Station {
                       if (station.outputTime.outputMin>=min) {
                         resolve(station);
                       }
-                    } 
+                    }
                   }
                   else if (station.inputTime.inputHour==hour) {
                     if (station.inputTime.inputHour<=min) {
@@ -292,7 +292,7 @@ class Station {
                       if (station.outputTime.outputMin>=min) {
                         resolve(station);
                       }
-                    } 
+                    }
                   }
                   else if (station.inputTime.inputHour==hour) {
                     if (station.inputTime.inputHour<=min) {
@@ -305,7 +305,7 @@ class Station {
                     resolve(station);
                   }
                 }
-              }            
+              }
               break;
             case 5:
               if (station.weekday.friday){
@@ -317,7 +317,7 @@ class Station {
                       if (station.outputTime.outputMin>=min) {
                         resolve(station);
                       }
-                    } 
+                    }
                   }
                   else if (station.inputTime.inputHour==hour) {
                     if (station.inputTime.inputHour<=min) {
@@ -342,7 +342,7 @@ class Station {
                       if (station.outputTime.outputMin>=min) {
                         resolve(station);
                       }
-                    } 
+                    }
                   }
                   else if (station.inputTime.inputHour==hour) {
                     if (station.inputTime.inputHour<=min) {
@@ -357,13 +357,13 @@ class Station {
                 }
               }
           }
-  
-  
+
+
         }
-  
+
       });
       console.log(id_result);
-      
+
      }).catch((err) => {
        reject(err);
      });
