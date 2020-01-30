@@ -8,6 +8,7 @@ const Manager = require('../models/manager');
 const User = require('../models/user');
 const Sensor = require('../models/sensor');
 const split = require('split-string');
+const moment = require('moment');
 
 const router = express.Router();
 
@@ -54,11 +55,23 @@ router.get('/edit/:id', auth.isAuthenticated, auth.isManager, (req, res) => {
 
 /* GET cadastroClientes page. */
 router.get('/logUse/:id', auth.isAuthenticated, auth.isManager, (req, res) => {
+  var i=0;
   Station.getById(req.params.id).then((station) => {
     console.log(station);
     Sensor.getByCodestation(station.codeStation).then((log) => {
-      console.log(log);
-      console.log("log");
+      log.forEach(element => {
+        console.log(moment(element.createdAt).format("DD-MM-YYYY"));
+        
+        log[i].date=moment(element.createdAt).format("DD/MM/YYYY");
+        log[i].time=moment(element.createdAt).format("HH:mm:ss");
+        //log.push(this);
+        i++;
+      });
+    
+      
+      
+      
+      
       User.getById(station.manager).then((manager) => {
         console.log(manager);
         res.render('manager/logUse', { title: 'Log de Uso', layout: 'layoutdashboardmanager', station, manager, log });

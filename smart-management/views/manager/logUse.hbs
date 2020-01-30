@@ -1,96 +1,130 @@
 <div class="movap-titulo">
-  <h4 align="left">LOG DE USO</h4>
-  <hr>
+    <h4 align="left">LOG DE USO</h4>
+    <hr>
 </div>
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 <div>
     <div class="card">
-    <div class="card-body">
-        <h6 align="left">COLABORADOR</h6>
-    </div>
+        <div class="card-body">
+            <h6 align="left">COLABORADOR</h6>
+        </div>
 
-    <div class="col">
+        <div class="col">
             <div class="row">
                 <div class="col-5">
-                    <div class="bg clearfix col" align= "left">
-                        <label class="text-left"  for="Input1">Nome do colaborador</label>
-                        <input type="text" class="form-control"  id="Input1" value="{{station.nameEmployed}}" readonly> 
+                    <div class="bg clearfix col" align="left">
+                        <label class="text-left" for="Input1">Nome do colaborador</label>
+                        <input type="text" class="form-control" id="Input1" value="{{station.nameEmployed}}" readonly>
                         <br>
-                        <label  class="text-left"  for="Input2">Número do aparelho</label>
-                        <input type="text" class="form-control" id="Input2" value="{{station.idesp}}" readonly>    
+                        <label class="text-left" for="Input2">Número do aparelho</label>
+                        <input type="text" class="form-control" id="Input2" value="{{station.idesp}}" readonly>
                     </div>
                     <br>
                     <div class="col"></div>
                 </div>
             </div>
         </div>
-    
+
     </div>
     <br>
     <div class="card">
         <div class="card-body">
             <h6 align="left">APARELHO COLOCADO NO DISPOSITIVO</h6>
         </div>
-    
+        <div class="row" id="logBody">
+
+            <div class="campo" id="data" style="width: 110px; margin-left: 2.5%;">
+                <input type="text" class="form-control dia" value="{{log.0.date}}" readonly>
+            </div>
+            <div class="campo">
+                <input type="text" class="form-control Desligado" value="{{log.0.time}}" readonly>
+            </div>
+            <div class="campo">
+                <input type="text" class="form-control Desligado" value="{{log.0.time}}" readonly>
+            </div>
+            <div class="campo">
+                <input type="text" class="form-control Desligado" value="{{log.0.time}}" readonly>
+            </div>
+            <div class="campo">
+                <input type="text" class="form-control Desligado" value="{{log.0.time}}" readonly>
+            </div>
+            <div class="campo">
+                <input type="text" class="form-control em" value="{{log.0.time}}" readonly>
+            </div>
+            <div class="campo">
+                <input type="text" class="form-control em" value="{{log.0.time}}" readonly>
+            </div>
+            <div class="campo">
+                <input type="text" class="form-control em" value="{{log.0.time}}" readonly>
+            </div>
+            <div class="campo">
+                <input type="text" class="form-control em" value="{{log.0.time}}" readonly>
+            </div>
+        </div>
+
+
         <div class="col">
-                <div class="row">
-                    <div class="col-5">
-                        <div class="bg clearfix col">
-                            <button type="button" class=" col-lg-5 btn btn-outline-info dropdown-toggle  float-left " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                NO MÊS
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">NO DIA </a>
-                                <a class="dropdown-item" href="#">NA SEMANA</a>
-                                <a class="dropdown-item" href="#">POR DATA...</a>
-                                <div class="dropdown-divider"></div>
-                            </div>
-                            <i class="far float-left fa-2x fa-border fa-calendar-alt"></i>
+            <div class="row">
+                <div class="col-5">
+                    <div class="bg clearfix col">
+                        <button type="button" class=" col-lg-5 btn btn-outline-info dropdown-toggle  float-left "
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            NO MÊS
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">NO DIA </a>
+                            <a class="dropdown-item" href="#">NA SEMANA</a>
+                            <a class="dropdown-item" href="#">POR DATA...</a>
+                            <div class="dropdown-divider"></div>
                         </div>
-                        <br>
-                        <div class="form-group" align= "left">
-                            <label   for="tx">Justificativa de abono</label>
-                            <textarea class="form-control" id="tx" rows="3"></textarea>
-                        </div>
+                        <i class="far float-left fa-2x fa-border fa-calendar-alt"></i>
+                    </div>
+                    <br>
+                    <div class="form-group" align="left">
+                        <label for="tx">Justificativa de abono</label>
+                        <textarea class="form-control" id="tx" rows="3"></textarea>
                     </div>
                 </div>
+            </div>
         </div>
-    
+
     </div>
     <br>
 
 
-    
+
     <div class="card">
         <div class="card-body">
             <h6 align="left">APARELHO RETIRADO DO DISPOSITIVO</h6>
         </div>
         <div class="col">
-                <div class="row">
-                    <div class="col-5">
-                        <div class="bg clearfix col">
-                            <button type="button" class=" col-lg-5 btn btn-outline-info dropdown-toggle  float-left " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                NO MÊS
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">NO DIA </a>
-                                <a class="dropdown-item" href="#">NA SEMANA</a>
-                                <a class="dropdown-item" href="#">POR ...</a>
-                                <div class="dropdown-divider"></div>
-                            </div>
-                            <i class="far float-left fa-2x fa-border fa-calendar-alt"></i>
+            <div class="row">
+                <div class="col-5">
+                    <div class="bg clearfix col">
+                        <button type="button" class=" col-lg-5 btn btn-outline-info dropdown-toggle  float-left "
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            NO MÊS
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">NO DIA </a>
+                            <a class="dropdown-item" href="#">NA SEMANA</a>
+                            <a class="dropdown-item" href="#">POR ...</a>
+                            <div class="dropdown-divider"></div>
                         </div>
-                        <br>
-                        <div class="form-group" align= "left">
-                            <label   for="tx">Justificativa de abono</label>
-                            <textarea class="form-control" id="tx" rows="3"></textarea>
-                        </div>
+                        <i class="far float-left fa-2x fa-border fa-calendar-alt"></i>
+                    </div>
+                    <br>
+                    <div class="form-group" align="left">
+                        <label for="tx">Justificativa de abono</label>
+                        <textarea class="form-control" id="tx" rows="3"></textarea>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 
-<br><br><br><br><br>
+    <br><br><br><br><br>
 </div>

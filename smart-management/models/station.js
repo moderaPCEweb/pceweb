@@ -172,11 +172,10 @@ class Station {
 
    static getCodestationByTimeAndIdesp(id_esp,dia,hour,min) {
     return new Promise((resolve, reject) => {
+    //console.log(id_esp+dia+hour+min);
+    
      StationModel.find({ idesp: id_esp }).exec().then((result) => {
-      var id_result=null;
-      console.log("result");
 
-      
       result.forEach(station => {
         console.log(station);
         
@@ -362,7 +361,6 @@ class Station {
         }
   
       });
-      console.log(id_result);
       
      }).catch((err) => {
        reject(err);
