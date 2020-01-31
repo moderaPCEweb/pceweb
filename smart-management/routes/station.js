@@ -60,10 +60,16 @@ router.get('/logUse/:id', auth.isAuthenticated, auth.isManager, (req, res) => {
     console.log(station);
     Sensor.getByCodestation(station.codeStation).then((log) => {
       log.forEach(element => {
-        console.log(moment(element.createdAt).format("DD-MM-YYYY"));
+        //console.log(moment(element.createdAt).format("DD-MM-YYYY"));
         
         log[i].date=moment(element.createdAt).format("DD/MM/YYYY");
         log[i].time=moment(element.createdAt).format("HH:mm:ss");
+        if (log[i].data==1) {
+          log[i].sts="Desligado";
+        } else if (log[i].data==0) {
+          log[i].sts="Em uso";
+        }
+        
         //log.push(this);
         i++;
       });

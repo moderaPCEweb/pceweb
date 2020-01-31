@@ -35,34 +35,14 @@
             <h6 align="left">APARELHO COLOCADO NO DISPOSITIVO</h6>
         </div>
         <div class="row" id="logBody">
-
+{{#each log}}
             <div class="campo" id="data" style="width: 110px; margin-left: 2.5%;">
-                <input type="text" class="form-control dia" value="{{log.0.date}}" readonly>
+                <input type="text" class="form-control dia" value="{{date}}" readonly>
             </div>
             <div class="campo">
-                <input type="text" class="form-control Desligado" value="{{log.0.time}}" readonly>
+                <input type="text" class="form-control {{sts}}" value="{{time}}" readonly>
             </div>
-            <div class="campo">
-                <input type="text" class="form-control Desligado" value="{{log.0.time}}" readonly>
-            </div>
-            <div class="campo">
-                <input type="text" class="form-control Desligado" value="{{log.0.time}}" readonly>
-            </div>
-            <div class="campo">
-                <input type="text" class="form-control Desligado" value="{{log.0.time}}" readonly>
-            </div>
-            <div class="campo">
-                <input type="text" class="form-control em" value="{{log.0.time}}" readonly>
-            </div>
-            <div class="campo">
-                <input type="text" class="form-control em" value="{{log.0.time}}" readonly>
-            </div>
-            <div class="campo">
-                <input type="text" class="form-control em" value="{{log.0.time}}" readonly>
-            </div>
-            <div class="campo">
-                <input type="text" class="form-control em" value="{{log.0.time}}" readonly>
-            </div>
+            {{/each}}
         </div>
 
 

@@ -4,6 +4,7 @@ const sensorSchema = new mongoose.Schema({
     data: Number,
     idesp: String,
     idmac: String,
+    //date: String,
     codeStation: String
 }, {timestamps: true, static: false});
  // dados:number

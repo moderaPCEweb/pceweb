@@ -7280,14 +7280,36 @@ a {
   color: #aaa; }
 
 .Desligado {
-  background: #254487;
-  color: white; }
+  background: #254487 !important;
+  color: white !important; }
 
 .em, .uso {
-  background: #B20000;
-  color: white; }
+  background: #B20000 !important;
+  color: white !important; }
 
 .btn_new {
-  padding-right: 15px; }
+  padding-right: 18px; }
+
+.campo input {
+  float: left;
+  width: 100%;
+  color: #FFF; }
+
+input, select, button {
+  border-radius: 0px !important; }
+
+.campo {
+  width: 90px;
+  padding: 0% 0% 1% 0% !important; }
+
+.squadBtn {
+  border-radius: 0px;
+  background-color: #00acce; }
+
+.dia {
+  width: 110px !important;
+  text-align: center;
+  margin-left: 5%;
+  background-color: #00acce !important; }
 
 /*# sourceMappingURL=style.css.map */
