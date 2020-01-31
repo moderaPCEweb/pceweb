@@ -174,7 +174,7 @@ class Station {
     return new Promise((resolve, reject) => {
      StationModel.find({ idesp: id_esp }).exec().then((result) => {
       var id_result=null;
-      console.log("result");
+      console.log(result);
 
 
       result.forEach(station => {
