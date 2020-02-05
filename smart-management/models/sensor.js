@@ -132,7 +132,22 @@ class Sensor {
           reject(err);
         });
       });
-    }
+    }  
+    
+    /**
+    * Get a Log by it's CodeStation
+    * @param {string} idesp - Log Id
+    * @returns {Object} - Log Document Data
+    */
+   static getByCodestationandDate(_codeStation, _date) {
+     return new Promise((resolve, reject) => {
+       SensorModel.find({ codeStation: _codeStation, date: _date}).sort({createdAt: 1}).exec().then((result) => {
+         resolve(result);
+       }).catch((err) => {
+         reject(err);
+       });
+     });
+   }
 
 }
 
