@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 const ClientSchema = new mongoose.Schema({
-    codClient: String,
+  codClient:{
+    type: String,
+    unique: true,
+  },
     corporateName: String,
     fantasyname: String,
     cnpj: Number,

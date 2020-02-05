@@ -44,7 +44,7 @@ router.post('/signup', function(req, res, next) {
     var usuario = ativa;
     Client.create(ativa).then((id) => {
       User.create(usuario).then((id) =>{
-        console.log("Usuario deu bom");
+    //    console.log("Usuario deu bom");
       }).catch((error) => {
         console.log(error);
         res.redirect('/error');
@@ -52,9 +52,28 @@ router.post('/signup', function(req, res, next) {
       res.redirect('/client/list');
     }).catch((error) => {
       console.log(error);
+      switch (error.code) {
+        case 11000:
+        if(error.keyPattern.codClient) {
+            req.flash('danger', 'Código do Cliente inserido já está em uso'); }
+        else if(error.keyPattern.cnpj) {
+            req.flash('danger', 'CNPJ inserido já está em uso'); }
+          break;
+      }
+      res.redirect('/client/signup');
+
     });
   }).catch((error) => {
-    res.redirect('/error');
+    switch (error.code) {
+      case 'auth/email-already-in-use':
+        req.flash('danger', 'Email já está sendo utilizado');
+        break;
+      case 'auth/weak-password':
+        req.flash('danger', 'A senha deve ter no mínimo 6 caracteres');
+        break;
+      }
+
+    res.redirect('/client/signup');
     console.log(error);
   });
 });

@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 
 const DeviceSchema = new mongoose.Schema({
   numLot: String,
-  numId: String, // ou tipo Number?
+  numId:{
+    type: String,
+    unique: true,
+  }, // ou tipo Number?
   dateFab: String,
   provider: String,
   status: {
