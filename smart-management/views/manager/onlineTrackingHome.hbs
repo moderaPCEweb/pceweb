@@ -15,6 +15,10 @@
         <div class="col-5">
             <br>
             <div class="row">
+              <button class="listagem" onclick="listView()"><i class="fa fa-bars"></i></button>
+              <button class="gradeamento" onclick="gridView()"><i class="fa fa-th-large"></i></button>
+            </div>
+            <div class="row">
                 <div class="input-group">
                     <input id="myInput" class="form-control" type="text" onkeyup="search()" placeholder="Pesquisar"
                         aria-label="Search">
@@ -25,9 +29,27 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div>
                 <table id="myTable" class="table table-bordered mt-3 border-dark border">
-                    <tbody id="table-body">
+                  <div class="row">
+                    <div class="column desligado">
+                        <div>
+                          <img class="imgstatus" src="/images/desligado.png">
+                          <span class="txtdesligado">DESLIGADO</span>
+                          <div class="nomestatusdesligado">Teodora Sampaio</div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="column emuso">
+                        <div>
+                          <img class="imgstatus" src="/images/emuso.png">
+                          <span class="txtemuso">EM USO</span>
+                          <div class="nomestatusemuso">Teodora Sampaio</div>
+                        </div>
+                    </div>
+                  </div>
+                    <tbody class="table-body">
                         <!-- {{#each stations}}
                     <tr>
                     <th scope="row" class="font-book text-left">{{nameEmployed}}</th>

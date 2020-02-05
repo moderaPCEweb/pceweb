@@ -239,7 +239,7 @@ function teste(){
 
     });
 
-    $('#table-body').html(tableBody);
+    $('.table-body').html(tableBody);
     if (document.getElementById("myInput").value.toUpperCase()!="") {
       search();
     }
@@ -258,4 +258,21 @@ function atualizar(){
 
   setTimeout('atualizar()',5000);
 
+}
+
+// Get the elements with class="column"
+var elements = document.getElementsByClassName("column");
+
+// Declare a loop variable
+var i;
+
+// List View
+function listView() {
+
+}
+
+// Grid View
+function gridView() {
+
+  
 }

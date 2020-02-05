@@ -7312,4 +7312,63 @@ input, select, button {
   margin-left: 5%;
   background-color: #00acce !important; }
 
+.listagem {
+  background-color: Transparent;
+  border: none;
+  font-size: 2vw;
+  color: #cfd3d6; }
+
+.listagem:active, .listagem:focus, .gradeamento:active, .gradeamento:focus {
+  color: #00accd; }
+
+.gradeamento {
+  background-color: Transparent;
+  border: none;
+  font-size: 2vw;
+  color: #cfd3d6; }
+
+.desligado {
+  background-color: #284486;
+  height: 25vh;
+  width: 10vw; }
+
+.imgstatus {
+  height: 14vh;
+  position: relative;
+  top: 3vh; }
+
+.txtdesligado, .txtemuso {
+  font-size: 1.6vw;
+  position: relative;
+  top: 3.5vh;
+  color: white;
+  font-weight: bold; }
+
+.nomestatusdesligado {
+  font-size: 1.4vw;
+  text-align: justify;
+  text-justify: inter-word;
+  position: relative;
+  top: 4vh;
+  height: auto;
+  color: white;
+  text-align: center;
+  background-color: #20396f; }
+
+.emuso {
+  background-color: #f05330;
+  height: 25vh;
+  width: 10vw; }
+
+.nomestatusemuso {
+  font-size: 1.4vw;
+  text-align: justify;
+  text-justify: inter-word;
+  position: relative;
+  top: 4vh;
+  height: auto;
+  color: white;
+  text-align: center;
+  background-color: #d04a2a; }
+
 /*# sourceMappingURL=style.css.map */
