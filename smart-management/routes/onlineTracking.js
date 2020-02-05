@@ -34,6 +34,50 @@ router.get('/getstation',(req,res) => {
     });
 });
 
+router.get('/getTolerance', (req, res) => {
+  console.log(req.session);
+  const manager = req.session._id;
+  console.log(manager);
+  Station.getByManager(manager).then((stations) => {
+    console.log(stations[0].codeStation);
+    var data = new Date();
+    var dia = data.getDate();
+    var mes = data.getMonth();
+    var ano = data.getFullYear();
+    var fulldate = dia+"/"+mes+1+"/"+ano;
+    console.log(fulldate);
+    
+    Sensor.getByCodestationandDate(stations[0].codeStation, fulldate).then((sensors) => {
+      console.log(sensors);
+      console.log("sensors");
+      var time = 0;
+      sensors.forEach(sensor => {
+        var oi = sensor.createdAt;
+        console.log("Time: " + moment(oi).format("HH:mm:ss"));
+        var hora = moment(oi).format("HH");
+        var minuto = moment(oi).format("mm");
+        var segundo = moment(oi).format("ss")
+        console.log(sensor);
+        console.log("----------------------------------");
+        if (sensor.data == 1) {
+          console.log("teste");
+          console.log(oi.getTime());
+          time -= oi.getTime();
+          console.log(time);
+        }
+        if (sensor.data == 0) {
+          console.log("teste");
+          console.log(oi.getTime());
+          time += oi.getTime();
+          console.log(time);
+        }
+      });
+      console.log("Tempo total");
+      console.log(time / 1000);
+    });
+  });
+});
+
 router.get('/list',auth.isAuthenticated,auth.isManager, (req, res) => {
   Sensor.getAll().then((sensor) => {
     const manager = req.session._id;
