@@ -53,6 +53,7 @@ router.post('/receiveData::idesp::data::idmac', (req, res) => {
     var min = data.getMinutes();
     var date = data.getDate();
     var mes = data.getMonth();
+    mes++;
     var ano = data.getUTCFullYear();
     // console.log("ID do esp: " + req.params.idesp);
     // console.log("MAC do esp: " + req.params.idmac);
