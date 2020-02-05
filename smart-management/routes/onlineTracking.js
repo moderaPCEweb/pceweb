@@ -14,9 +14,10 @@ router.get('/',auth.isAuthenticated,auth.isManager, (req, res) => {
   res.render('manager/onlineTracking', { title: 'Acompanhamento Online', layout: 'layoutdashboardmanager' });
 });
 
-router.get('/user/:id',auth.isAuthenticated,auth.isManager, (req, res) => {
-  Station.getById(req.params.id).then((stations) => {
-    res.render('manager/onlineTrackingUser', { title: 'Acompanhamento Online', layout: 'layoutdashboardmanager', stations });
+router.get('/user/:codeStation',auth.isAuthenticated,auth.isManager, (req, res) => {
+
+  Station.getByCode(req.params.codeStation).then((stations) => {
+    res.render('manager/onlineTrackingUser', { title: 'Acompanhamento Online', layout: 'layoutdashboardmanager', stations ,...req.session});
   });
 });
 

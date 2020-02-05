@@ -1,3 +1,4 @@
+{{#each stations}}
 <div class="movap-titulo">
   <h4 align="left">ACOMPANHAMENTO ONLINE</h4>
   <hr>
@@ -15,14 +16,14 @@
         <!-- Espaço para a foto do usuário que não sei se vai dar bom  -->
       </div>
       <div class="col-5">
-          <div class="bg clearfix col">
-              <p align="left" class="mb-0" for="Input1">Nome do colaborador</p>
-              <input type="text" class="form-control movap-boxcinza"  id="Input1" value="{{stations.nameEmployed}}" disabled>
-              <br>
-              <p align="left" class="mb-0" for="Input2">Número do aparelho</p>
-              <input type="text" class="form-control movap-boxcinza" id="Input2" value="{{stations.deviceNumber}}" disabled>
-          </div>
+        <div class="bg clearfix col">
+          <p align="left" class="mb-0" for="Input1">Nome do colaborador</p>
+          <input type="text" class="form-control movap-boxcinza" id="Input1" value="{{nameEmployed}}" disabled>
           <br>
+          <p align="left" class="mb-0" for="Input2">Número do aparelho</p>
+          <input type="text" class="form-control movap-boxcinza" id="Input2" value="{{idesp}}" disabled>
+        </div>
+        <br>
       </div>
     </div>
   </div>
@@ -37,18 +38,19 @@
     <div class="row">
       <div class="col-2">
         <!-- Espaço para a foto do aparelho que não sei se vai dar bom  -->
-        <p align="left" class="mb-0" for="Input2">Status</p>
-        <input type="text" class="form-control movap-boxcinza" id="Input2" value="{{stations.status}}" disabled>
+        <p align="left" class="mb-0 dataesp" for="Input2">Status</p>
+        <input type="text" class="form-control movap-boxcinza" id="Input2" value="{{status}}" disabled>
       </div>
       <div class="col-5">
-          <div class="bg clearfix col">
-              <p align="left" class="mb-0" for="Input1">Tempo total disponível</p>
-              <input type="text" class="form-control movap-boxcinza"  id="Input1" value="{{stations.toleranceTime}}" disabled>
-              <br>
-          </div>
+        <div class="bg clearfix col">
+          <p align="left" class="mb-0" for="Input1">Tempo total disponível</p>
+          <input type="text" class="form-control movap-boxcinza" id="Input1" value="{{toleranceTime}}"
+            disabled>
           <br>
+        </div>
+        <br>
       </div>
     </div>
   </div>
 </div>
-<br><br><br>
+{{/each}}
