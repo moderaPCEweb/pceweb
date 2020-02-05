@@ -52,6 +52,8 @@ router.post('/signup', function(req, res, next) {
       res.redirect('/client/list');
     }).catch((error) => {
       console.log(error);
+      req.flash('danger', 'Código do Cliente inserido já está em uso');
+      res.redirect('/client/signup');
     });
   }).catch((error) => {
     res.redirect('/error');

@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 const SectorSchema = new mongoose.Schema({
-    codSector: String,
+   codSector:{
+    type: String,
+    unique: true,
+  },
     name: String,
     manager: String,
     idManager: String,
