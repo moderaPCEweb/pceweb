@@ -59,6 +59,7 @@ router.post('/receiveData::idesp::data::idmac', (req, res) => {
     // console.log("MAC do esp: " + req.params.idmac);
     // console.log("Variável recebida: " + req.params.data);
     const ativa = req.params;
+    ativa.date = date + "/" + mes + "/" + ano;
     //console.log(ativa);
     Station.getCodestationByTimeAndIdesp(ativa.idesp, dia, hour, min).then((station) => {
       //console.log(station);
