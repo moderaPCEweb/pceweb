@@ -94,6 +94,21 @@ class Station {
       });
     }
 
+    /**
+    * Get a Station by it's id
+    * @param {string} id - Station Id
+    * @returns {Object} - Station Document Data
+    */
+   static getByCode(id) {
+    return new Promise((resolve, reject) => {
+      StationModel.find({codeStation: id}).exec().then((result) => {
+        resolve(result);
+      }).catch((err) => {
+        reject(err);
+      });
+    });
+  }
+
        /**
     * Get a Station by it's manager
     * @param {string} id - Station manager
@@ -173,7 +188,7 @@ class Station {
    static getCodestationByTimeAndIdesp(id_esp,dia,hour,min) {
     return new Promise((resolve, reject) => {
     //console.log(id_esp+dia+hour+min);
-    
+
      StationModel.find({ idesp: id_esp }).exec().then((result) => {
 
       result.forEach(station => {
@@ -361,7 +376,7 @@ class Station {
         }
 
       });
-      
+
      }).catch((err) => {
        reject(err);
      });
