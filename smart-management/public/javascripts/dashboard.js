@@ -256,6 +256,6 @@ function atualizar(){
 
   teste();
 
-  setTimeout('atualizar()',5000);
+  setTimeout('atualizar()',100);
 
 }
