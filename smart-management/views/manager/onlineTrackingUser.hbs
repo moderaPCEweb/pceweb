@@ -1,3 +1,4 @@
+{{#each stations}}
 <div class="movap-titulo">
   <h4 align="left">ACOMPANHAMENTO ONLINE</h4>
   <hr>
@@ -15,14 +16,14 @@
         <!-- Espaço para a foto do usuário que não sei se vai dar bom  -->
       </div>
       <div class="col-5">
-          <div class="bg clearfix col">
-              <p align="left" class="mb-0" for="Input1">Nome do colaborador</p>
-              <input type="text" class="form-control movap-boxcinza"  id="Input1" value="{{stations.nameEmployed}}" disabled>
-              <br>
-              <p align="left" class="mb-0" for="Input2">Número do aparelho</p>
-              <input type="text" class="form-control movap-boxcinza" id="Input2" value="{{stations.deviceNumber}}" disabled>
-          </div>
+        <div class="bg clearfix col">
+          <p align="left" class="mb-0" for="Input1">Nome do colaborador</p>
+          <input type="text" class="form-control movap-boxcinza" id="Input1" value="{{nameEmployed}}" disabled>
           <br>
+          <p align="left" class="mb-0" for="Input2">Número do aparelho</p>
+          <input type="text" class="form-control movap-boxcinza" id="Input2" value="{{idesp}}" disabled>
+        </div>
+        <br>
       </div>
     </div>
   </div>
@@ -37,18 +38,79 @@
     <div class="row">
       <div class="col-2">
         <!-- Espaço para a foto do aparelho que não sei se vai dar bom  -->
-        <p align="left" class="mb-0" for="Input2">Status</p>
-        <input type="text" class="form-control movap-boxcinza" id="Input2" value="{{stations.status}}" disabled>
+        <p align="left" class="mb-0 dataesp" for="Input2">Status</p>
+        <input type="text" class="form-control movap-boxcinza" id="Input2" value="{{status}}" disabled>
       </div>
       <div class="col-5">
-          <div class="bg clearfix col">
-              <p align="left" class="mb-0" for="Input1">Tempo total disponível</p>
-              <input type="text" class="form-control movap-boxcinza"  id="Input1" value="{{stations.toleranceTime}}" disabled>
-              <br>
-          </div>
+        <div class="bg clearfix col">
+          <p align="left" class="mb-0" for="Input1">Tempo total disponível</p>
+          <input type="text" class="form-control movap-boxcinza" id="Input1" value="{{toleranceTime}}"
+            disabled>
           <br>
+        </div>
+        <br>
       </div>
     </div>
   </div>
 </div>
-<br><br><br>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <h6 align="left" color="gray">ACOMPANHAMENTO GRÁFICO</h6>
+    <hr>
+  </div>
+
+  <!-- Start Canvas / desenhar elementos gráficos usando JS -->
+  <canvas width="1300" height="180" class="line-chart"> </canvas>
+
+   <!-- include chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+  <script>
+    var ctx = document.getElementsByClassName("line-chart");
+
+    // Tipo e dados
+    var chartGraph = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"],
+            datasets:[{
+              label: "Acompanhamento Gráfico",
+              data: [0,1,0,1,1,1,0,0,1,1,1,0],
+              borderWidht: 6,
+              borderColor: 'rgb(40,67,132)',
+              backgroundColor: 'rgb(40,67,132)',
+              steppedLine: true,
+              fill: true,
+            }]
+          },
+
+          //opções de customização do gráfico
+          options: {
+            responsive:false,
+            legend: {
+              display:false,
+            },
+            scales:{
+              yAxes:[{
+                ticks:{
+                  max:1,
+                  min:0,
+                  stepSize:1
+                },
+                gridLines: {
+                  display: false
+                },
+              }],
+              xAxes:[{
+                gridLines: {
+                  display:false
+                }
+              }],
+            },
+          }
+    });
+
+</script>
+</div>
+{{/each}}
