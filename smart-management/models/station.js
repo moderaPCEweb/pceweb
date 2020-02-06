@@ -173,7 +173,7 @@ class Station {
    static getCodestationByTimeAndIdesp(id_esp,dia,hour,min) {
     return new Promise((resolve, reject) => {
     //console.log(id_esp+dia+hour+min);
-    
+
      StationModel.find({ idesp: id_esp }).exec().then((result) => {
 
       result.forEach(station => {
@@ -300,7 +300,7 @@ class Station {
                   }
                 }
                 else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                  if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                     resolve(station);
                   }
                 }
@@ -361,7 +361,6 @@ class Station {
         }
 
       });
-      
      }).catch((err) => {
        reject(err);
      });

@@ -38,22 +38,22 @@ router.get('/list',auth.isAuthenticated,auth.isManager, (req, res) => {
     const manager = req.session._id;
     console.log(manager);
       Station.getByManager(manager).then((stations) => {
-      
+
         var d = new Date();
-        var h = d.getHours();
+        var h = d.getHours() - 1; //Horário de verão
         var m = d.getMinutes();
         var dia = d.getDay();
         console.log("********************************");
         console.log("Weekday "+stations);
-        
+
         console.log(dia + "time: "+h+":"+m);
 
         console.log("********************************");
 
         // console.log(sensor[0].createdAt);
       // oi = sensor[0].createdAt;
-      
-      // console.log(oi);   
+
+      // console.log(oi);
       // console.log(moment(oi).format("YYYY-MM-DD HH:mm:ss"));
       // console.log("Date: "+moment(oi).format("YYYY-MM-DD"));
       // console.log("Year: "+moment(oi).format("YYYY"));
@@ -66,7 +66,7 @@ router.get('/list',auth.isAuthenticated,auth.isManager, (req, res) => {
       // var minuto = moment(oi).format("mm");
       // var segundo = moment(oi).format("ss")
       // console.log("----------------------------------");
-      
+
 
       // var date = oi;
       // var now = new Date();
@@ -76,12 +76,12 @@ router.get('/list',auth.isAuthenticated,auth.isManager, (req, res) => {
       // ss = ff%60;
       // mi = ff/60;
       // console.log(mi.toFixed(0)+":"+ss);
-  
+
     res.render('manager/onlineTrackingHome', { title: 'Acompanhamento Online',h,m,dia, layout: 'layoutdashboardmanager',stations ,...req.session});
   }).catch((error) => {
     res.redirect('error');
     console.log(error);
-  });  
+  });
 
      }).catch((error)=> {
      res.redirect('/error');

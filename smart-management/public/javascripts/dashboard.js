@@ -50,7 +50,7 @@ function teste(){
   console.log("entrou");
   var data = new Date();
   var dia = data.getDay();
-  var hour = data.getHours();
+  var hour = data.getHours() - 1; //Horário de verão
   var min = data.getMinutes();
   $.get('/onlinetracking/getstation', (stations) =>{
     let tableBody= '';
@@ -76,7 +76,7 @@ function teste(){
                 }
               }
               else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                   tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                 }
               }
@@ -101,7 +101,7 @@ function teste(){
                 }
               }
               else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                   tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                 }
               }
@@ -126,7 +126,7 @@ function teste(){
                 }
               }
               else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                   tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                 }
               }
@@ -151,7 +151,7 @@ function teste(){
                 }
               }
               else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                   tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                 }
               }
@@ -176,7 +176,7 @@ function teste(){
                 }
               }
               else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                   tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                 }
               }
@@ -201,7 +201,7 @@ function teste(){
                 }
               }
               else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                   tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                 }
               }
@@ -226,7 +226,7 @@ function teste(){
                 }
               }
               else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                   tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
                 }
               }

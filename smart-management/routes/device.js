@@ -49,7 +49,7 @@ router.post('/receiveData::idesp::data::idmac', (req, res) => {
   } else {
     var data = new Date();
     var dia = data.getDay();
-    var hour = data.getHours();
+    var hour = data.getHours() - 1; //Horário de verão
     var min = data.getMinutes();
     var date = data.getDate();
     var mes = data.getMonth();
@@ -88,17 +88,17 @@ router.post('/receiveData::idesp::data::idmac', (req, res) => {
       }).catch((error) => {
         console.log(error);
       });
-    
+
     //console.log("****************ativa****************");
     // Sensor.create(ativa).then((id) => {
     //   //console.log("sensor");
     //   //console.log(id);
-      
+
     // }).catch((error) => {
     //   console.log(error);
     // });
   } else {console.log("Sem funcionarios neste horario!");}
-  
+
   }).catch((error) => {
     console.log(error);
   });
