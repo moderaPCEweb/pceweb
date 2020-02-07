@@ -200,7 +200,7 @@ class Station {
                   }
                 }
                 else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                  if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                     resolve(station);
                   }
                 }
@@ -225,7 +225,7 @@ class Station {
                   }
                 }
                 else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                  if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                     resolve(station);
                   }
                 }
@@ -250,7 +250,7 @@ class Station {
                   }
                 }
                 else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                  if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                     resolve(station);
                   }
                 }
@@ -275,7 +275,7 @@ class Station {
                   }
                 }
                 else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                  if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                     resolve(station);
                   }
                 }
@@ -325,7 +325,7 @@ class Station {
                   }
                 }
                 else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                  if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                     resolve(station);
                   }
                 }
@@ -350,7 +350,7 @@ class Station {
                   }
                 }
                 else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                  if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                     resolve(station);
                   }
                 }
