@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const StationSchema = new mongoose.Schema({
     codeStation: {
       type: String,
-      // unique: true
+      unique: true
     }, //trabalhar com o erro depois em cach error
     // devicecode: String,
     id_m: {
@@ -173,12 +173,12 @@ class Station {
    static getCodestationByTimeAndIdesp(id_esp,dia,hour,min) {
     return new Promise((resolve, reject) => {
     //console.log(id_esp+dia+hour+min);
-    
+
      StationModel.find({ idesp: id_esp }).exec().then((result) => {
 
       result.forEach(station => {
         console.log(station);
-        
+
         if(station.status=="Trabalho"){
           switch (dia) {
             case 0:
@@ -191,7 +191,7 @@ class Station {
                       if (station.outputTime.outputMin>=min) {
                         resolve(station);
                       }
-                    } 
+                    }
                   }
                   else if (station.inputTime.inputHour==hour) {
                     if (station.inputTime.inputHour<=min) {
@@ -200,7 +200,7 @@ class Station {
                   }
                 }
                 else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                  if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                     resolve(station);
                   }
                 }
@@ -216,7 +216,7 @@ class Station {
                       if (station.outputTime.outputMin>=min) {
                         resolve(station);
                       }
-                    } 
+                    }
                   }
                   else if (station.inputTime.inputHour==hour) {
                     if (station.inputTime.inputHour<=min) {
@@ -225,7 +225,7 @@ class Station {
                   }
                 }
                 else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                  if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                     resolve(station);
                   }
                 }
@@ -241,7 +241,7 @@ class Station {
                       if (station.outputTime.outputMin>=min) {
                         resolve(station);
                       }
-                    } 
+                    }
                   }
                   else if (station.inputTime.inputHour==hour) {
                     if (station.inputTime.inputHour<=min) {
@@ -250,11 +250,11 @@ class Station {
                   }
                 }
                 else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                  if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                     resolve(station);
                   }
                 }
-              }            
+              }
               break;
             case 3:
               if (station.weekday.wednesday){
@@ -266,7 +266,7 @@ class Station {
                       if (station.outputTime.outputMin>=min) {
                         resolve(station);
                       }
-                    } 
+                    }
                   }
                   else if (station.inputTime.inputHour==hour) {
                     if (station.inputTime.inputHour<=min) {
@@ -275,7 +275,7 @@ class Station {
                   }
                 }
                 else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                  if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                     resolve(station);
                   }
                 }
@@ -291,7 +291,7 @@ class Station {
                       if (station.outputTime.outputMin>=min) {
                         resolve(station);
                       }
-                    } 
+                    }
                   }
                   else if (station.inputTime.inputHour==hour) {
                     if (station.inputTime.inputHour<=min) {
@@ -300,11 +300,11 @@ class Station {
                   }
                 }
                 else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                  if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                     resolve(station);
                   }
                 }
-              }            
+              }
               break;
             case 5:
               if (station.weekday.friday){
@@ -316,7 +316,7 @@ class Station {
                       if (station.outputTime.outputMin>=min) {
                         resolve(station);
                       }
-                    } 
+                    }
                   }
                   else if (station.inputTime.inputHour==hour) {
                     if (station.inputTime.inputHour<=min) {
@@ -325,7 +325,7 @@ class Station {
                   }
                 }
                 else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                  if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                     resolve(station);
                   }
                 }
@@ -341,7 +341,7 @@ class Station {
                       if (station.outputTime.outputMin>=min) {
                         resolve(station);
                       }
-                    } 
+                    }
                   }
                   else if (station.inputTime.inputHour==hour) {
                     if (station.inputTime.inputHour<=min) {
@@ -350,18 +350,17 @@ class Station {
                   }
                 }
                 else if (station.outputTime.outputHour<station.inputTime.inputHour) {
-                  if ((station.inputTime.inputHour>hour)||(station.outputTime.outputHour>hour)||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))) {
+                  if (((station.inputTime.inputHour>hour)&&(station.outputTime.outputHour>hour))||((station.inputTime.inputHour==hour)&&(station.inputTime.inputMin<=min))||((station.outputTime.outputHour==hour)&&(station.outputTime.outputMin>min))||((station.inputTime.inputHour<hour)&&(station.outputTime.outputHour<hour))) {
                     resolve(station);
                   }
                 }
               }
           }
-  
-  
+
+
         }
-  
+
       });
-      
      }).catch((err) => {
        reject(err);
      });

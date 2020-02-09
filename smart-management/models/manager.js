@@ -1,7 +1,10 @@
 const mongoose = require('mongoose');
 
 const ManagerSchema = new mongoose.Schema({
-    codManager: String,
+    codManager:{
+      type: String,
+      unique: true,
+    },
     name: String,
     office: String,
     uid: {

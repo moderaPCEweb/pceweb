@@ -49,12 +49,16 @@ router.post('/receiveData::idesp::data::idmac', (req, res) => {
   } else {
     var data = new Date();
     var dia = data.getDay();
-    var hour = data.getHours();
+    var hour = data.getHours(); //Horário de verão
     var min = data.getMinutes();
+    var date = data.getDate();
+    var mes = data.getMonth();
+    var ano = data.getUTCFullYear();
     // console.log("ID do esp: " + req.params.idesp);
     // console.log("MAC do esp: " + req.params.idmac);
     // console.log("Variável recebida: " + req.params.data);
     const ativa = req.params;
+    ativa.date = date + "/" + mes + 1 + "/" + ano;
     //console.log(ativa);
     Station.getCodestationByTimeAndIdesp(ativa.idesp, dia, hour, min).then((station) => {
       //console.log(station);
@@ -84,17 +88,17 @@ router.post('/receiveData::idesp::data::idmac', (req, res) => {
       }).catch((error) => {
         console.log(error);
       });
-    
+
     //console.log("****************ativa****************");
     // Sensor.create(ativa).then((id) => {
     //   //console.log("sensor");
     //   //console.log(id);
-      
+
     // }).catch((error) => {
     //   console.log(error);
     // });
   } else {console.log("Sem funcionarios neste horario!");}
-  
+
   }).catch((error) => {
     console.log(error);
   });

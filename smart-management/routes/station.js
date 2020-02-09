@@ -98,13 +98,15 @@ router.post('/signup', function (req, res, next) {
   ativa.id_m = req.session.id_t;
   ativa.manager = req.session._id;
   Station.create(ativa).then((id) => {
+    req.flash('danger', 'Estação criada');
     res.redirect('/station/list');
     }).catch((error) => {
 
       console.log("Matrícula já esta sendo usada");
       console.log(error);
+      req.flash('danger', 'Matrícula inserida já está em uso');
+
       res.redirect('/station/signup');
-      req.flash('danger', 'JÁ EM USOOOOOOOOO');
   });
 });
 
