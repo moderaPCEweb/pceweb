@@ -63,7 +63,7 @@ router.get('/logUse/:id', auth.isAuthenticated, auth.isManager, (req, res) => {
         //console.log(moment(element.createdAt).format("DD-MM-YYYY"));
         
         log[i].date=moment(element.createdAt).format("DD/MM/YYYY");
-        log[i].time=moment(element.createdAt).format("HH:mm:ss");
+        log[i].time=element.createdAt.getHours()+":"+element.createdAt.getMinutes()+":"+element.createdAt.getSeconds();
         if (log[i].data==1) {
           log[i].sts="Desligado";
         } else if (log[i].data==0) {
@@ -156,4 +156,11 @@ router.post('/:id', (req, res) => {
   });
 });
 
+router.get('/log/:date&:Codestation', auth.isAuthenticated, auth.isManager, (req, res) => {
+  const date = req.params.date;
+  const Codestation = req.params.Codestation;
+    Sensor.getByCodestationandDate(Codestation, date).then((sensors) => {
+      res.send(sensors);
+    });
+});
 module.exports = router;
