@@ -40,7 +40,7 @@ router.get('/list',auth.isAuthenticated,auth.isManager, (req, res) => {
       Station.getByManager(manager).then((stations) => {
 
         var d = new Date();
-        var h = d.getHours() - 1; //Horário de verão
+        var h = d.getHours(); //Horário de verão
         var m = d.getMinutes();
         var dia = d.getDay();
         console.log("********************************");

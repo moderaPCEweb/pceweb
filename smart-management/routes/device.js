@@ -49,7 +49,7 @@ router.post('/receiveData::idesp::data::idmac', (req, res) => {
   } else {
     var data = new Date();
     var dia = data.getDay();
-    var hour = data.getHours() - 1; //Horário de verão
+    var hour = data.getHours(); //Horário de verão
     var min = data.getMinutes();
     var date = data.getDate();
     var mes = data.getMonth();

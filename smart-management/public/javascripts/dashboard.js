@@ -50,7 +50,7 @@ function teste(){
   console.log("entrou");
   var data = new Date();
   var dia = data.getDay();
-  var hour = data.getHours() - 1; //Horário de verão
+  var hour = data.getHours(); //Horário de verão
   var min = data.getMinutes();
   $.get('/onlinetracking/getstation', (stations) =>{
     let tableBody= '';
