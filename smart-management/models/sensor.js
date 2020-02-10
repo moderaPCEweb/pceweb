@@ -134,6 +134,15 @@ class Sensor {
       });
     }
 
+    static getByCodestationandDate(_codeStation, _date) {
+      return new Promise((resolve, reject) => {
+        SensorModel.find({ codeStation: _codeStation, date: _date}).sort({createdAt: 1}).exec().then((result) => {
+          resolve(result);
+        }).catch((err) => {
+          reject(err);
+        });
+      });
+    }
 }
 
   module.exports = Sensor;

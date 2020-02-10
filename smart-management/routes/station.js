@@ -9,6 +9,8 @@ const User = require('../models/user');
 const Sensor = require('../models/sensor');
 const split = require('split-string');
 const moment = require('moment');
+var Base64 = require('js-base64').Base64;
+
 
 const router = express.Router();
 
@@ -57,6 +59,7 @@ router.get('/edit/:id', auth.isAuthenticated, auth.isManager, (req, res) => {
 router.get('/logUse/:id', auth.isAuthenticated, auth.isManager, (req, res) => {
   var i=0;
   Station.getById(req.params.id).then((station) => {
+    codeStation=station.codeStation;
     console.log(station);
     Sensor.getByCodestation(station.codeStation).then((log) => {
       log.forEach(element => {
@@ -80,7 +83,7 @@ router.get('/logUse/:id', auth.isAuthenticated, auth.isManager, (req, res) => {
       
       User.getById(station.manager).then((manager) => {
         console.log(manager);
-        res.render('manager/logUse', { title: 'Log de Uso', layout: 'layoutdashboardmanager', station, manager, log });
+        res.render('manager/logUse', { title: 'Log de Uso', layout: 'layoutdashboardmanager', station, manager, log, codeStation });
 
       });
     });
@@ -156,4 +159,19 @@ router.post('/:id', (req, res) => {
   });
 });
 
+router.get('/log/:date&:Codestation', auth.isAuthenticated, auth.isManager, (req, res) => {
+  var _date = req.params.date;
+  console.log("date");
+  console.log(_date);
+  //_date=_date.replace(/-/g,"/");
+  _date=Base64.decode(_date);
+  console.log(_date);
+  
+  const Codestation = req.params.Codestation;
+    Sensor.getByCodestationandDate(Codestation, _date).then((sensors) => {
+      console.log(sensors);
+      
+      res.send(sensors);
+    });
+});
 module.exports = router;

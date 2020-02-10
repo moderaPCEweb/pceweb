@@ -1,7 +1,12 @@
+<script src="/javascripts/log.js"></script>
+<script src="/javascripts/jquery.js" charset="utf-8"></script>
+
+
 <div class="movap-titulo">
     <h4 align="left">LOG DE USO</h4>
     <hr>
 </div>
+<script>logCreate('{{station.codeStation}}',);</script>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
     integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -19,8 +24,11 @@
                         <label class="text-left" for="Input1">Nome do colaborador</label>
                         <input type="text" class="form-control" id="Input1" value="{{station.nameEmployed}}" readonly>
                         <br>
+                        <label class="text-left" for="Input2">Matrícula</label>
+                        <input type="text" class="form-control" id="Input2" value="{{station.codeStation}}" readonly>
+                    <br>
                         <label class="text-left" for="Input2">Número do aparelho</label>
-                        <input type="text" class="form-control" id="Input2" value="{{station.idesp}}" readonly>
+                        <input type="text" class="form-control" id="Input3" value="{{station.idesp}}" readonly>
                     </div>
                     <br>
                     <div class="col"></div>
