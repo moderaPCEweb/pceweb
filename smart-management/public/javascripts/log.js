@@ -1,21 +1,31 @@
-function teste() {
-    console.log("entrou");
-    var data = new Date();
-    var dia = data.getDay();
-    var hour = data.getHours(); //Horário de verão
-    var min = data.getMinutes();
-    $.get('/onlinetracking/getstation', (stations) => {
+function logCreate(_codeStation, _data) {
+    console.log("log"+_codeStation);
+    if (!_data) {
+        var data = new Date();
+    var dia = data.getDate();
+    var mes = data.getMonth()+1; 
+    var ano = data.getFullYear();
+    if(dia<10){dia='0'+dia}
+if(mes<10){mes='0'+mes}
+    _data=window.btoa(dia+"/"+mes+"/"+ano);
+    alert(_data);
+
+    }
+
+   // var cd = ""+${codeStation};
+    alert(_codeStation);
+    
+    $.get('/station/log/'+_data+'&'+_codeStation, (sensors) => {
         let tableBody = '';
-        stations.forEach(station => {
-            if (station.status == "Trabalho") {
-                tableBody += `<tr><th scope="row" class="font-book text-left">${station.nameEmployed}</th><th scope="row" class="font-book text-center ${station.dataesp}">${station.dataesp}</th></tr>`;
+        console.log(sensors);
+        
+        sensors.forEach(sensor => {
+            if (sensor) {
+                tableBody += ``;
             }
 
-            $('#table-body').html(tableBody);
-            if (document.getElementById("myInput").value.toUpperCase() != "") {
-                search();
-            }
-            console.log(stations);
+            $('#logBody').html(tableBody);
+           
 
         }).catch((error) => {
             res.redirect('error');
