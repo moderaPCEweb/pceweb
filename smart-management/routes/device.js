@@ -42,11 +42,11 @@ router.post('/signup', auth.isAuthenticated, auth.isADM, (req, res) => {
   });
 });
 
-
-router.post('/receiveData::idesp::data::idmac', (req, res) => {
-  if (!(req.params.idesp && req.params.idmac && req.params.data)) {
+router.post('/receiveData::idesp::data::idmac', (req, res) => {//Recebe os dados do ESP
+  if (!(req.params.idesp && req.params.idmac && req.params.data)) {//Verifica se os dados estão corretos
     return res.send("Formato inválido");
   } else {
+    //cria variaveis de data atual
     var data = new Date();
     var dia = data.getDay();
     var hour = data.getHours(); //Horário de verão
@@ -54,61 +54,39 @@ router.post('/receiveData::idesp::data::idmac', (req, res) => {
     var date = data.getDate();
     var mes = data.getMonth();
     var ano = data.getUTCFullYear();
-    // console.log("ID do esp: " + req.params.idesp);
-    // console.log("MAC do esp: " + req.params.idmac);
-    // console.log("Variável recebida: " + req.params.data);
-    const ativa = req.params;
-    ativa.date = date + "/" + mes + 1 + "/" + ano;
-    //console.log(ativa);
-    Station.getCodestationByTimeAndIdesp(ativa.idesp, dia, hour, min).then((station) => {
-      //console.log(station);
-      //console.log("*******station**********");
-      if (station.codeStation) {
-      ativa.codeStation = station.codeStation;
-      Sensor.create(ativa).then((id) => {
-
-        if (ativa.data == 0) {
-          //console.log("Em uso");
-          station.dataesp = "Em uso";
-          Station.update(station._id, station).then(() => {
-          }).catch((error) => {
-            console.log(error);
-          });
-        }
-        else if (ativa.data == 1) {
-          //console.log("Desligado");
-
-          station.dataesp = "Desligado";
-          Station.update(station._id, station).then(() => {
-          }).catch((error) => {
-            console.log(error);
-          });
-        }
-        // console.log(station);
-      }).catch((error) => {
-        console.log(error);
-      });
-
-    //console.log("****************ativa****************");
-    // Sensor.create(ativa).then((id) => {
-    //   //console.log("sensor");
-    //   //console.log(id);
-
-    // }).catch((error) => {
-    //   console.log(error);
-    // });
-  } else {console.log("Sem funcionarios neste horario!");}
-
-  }).catch((error) => {
-    console.log(error);
-  });
+    const ativa = req.params;//cria objeto dos dados recebidos
+    ativa.date = date + "/" + mes + 1 + "/" + ano;//seta string data
+    Station.getCodestationByTimeAndIdesp(ativa.idesp, dia, hour, min).then((station) => {//busca qual funcionario está logado agora      
+      if (station.codeStation) {//verifica se encontrou algum funcionario
+        ativa.codeStation = station.codeStation;//atribui codigo de funcionario a estação
+        Sensor.create(ativa).then((id) => {//cria o dado no banco
+          //Atualiza o status do usuario
+          if (ativa.data == 0) {
+            station.dataesp = "Em uso";
+            Station.update(station._id, station).then(() => {
+            }).catch((error) => {
+              console.log(error);
+            });
+          }
+          else if (ativa.data == 1) {
+            station.dataesp = "Desligado";
+            Station.update(station._id, station).then(() => {
+            }).catch((error) => {
+              console.log(error);
+            });
+          }
+        }).catch((error) => {
+          console.log(error);
+        });
 
 
+      } else { console.log("Sem funcionarios neste horario!"); }
 
-
+    }).catch((error) => {
+      console.log(error);
+    });
     return res.send("Recebido");
   }
-
 });
 
 
